@@ -16,36 +16,42 @@ bot_token = '8025972966:AAHaUFQxaH-7Uu1XHQGhp5t23WpWk63Cps0'
 
 texts = {
 
+    from_bot: {
 
-    
+        greeting: 'Привет. Если тебе очень плохо, можешь дать сигнал и я тебя поддержу. Еще можешь попросить меня периодически писать, и я постараюсь сделать хоть что-то. Но я не знаю, насколько это может именить что-либо.',
+
+        i_could_try_to_help_you: 'Постараюсь поддержать',
+
+    },
+
+    help_me_please: 'помогите',
+
+    help_normal_letters: [
+
+        'У тебя все получится',
+        'Твоя боль оправдана',
+        'Ты сможешь',
+        'У тебя все будет хорошо',
+        'Ты хороший человек',
+        'Что бы ни случилось, знай - ты сможешь',
+        'Я ценю то, что ты говоришь',
+        'Твои старания обязательно приведут тебя к желаемому',
+        'Твои мечты исполнятся',
+        'Ты точно достигнешь своих целей',
+        'Я верю в тебя'
+
+    ],
+
+    help_low_letters: [],
+
+    i_could_try_to_help_you: 'Я постараюсь поддержать, если тебе больно. Просто попроси.'
+
 }
-
-greeting = 'Привет. Если тебе очень плохо, можешь дать сигнал и я тебя поддержу. Еще можешь попросить меня периодически писать, и я постараюсь сделать хоть что-то. Но я не знаю, насколько это может именить что-либо.'
-
-help_standart = [
-
-    'У тебя все получится',
-    'Твоя боль оправдана',
-    'Ты сможешь',
-    'У тебя все будет хорошо',
-    'Ты хороший человек',
-    'Что бы ни случилось, знай - ты сможешь',
-    'Я ценю то, что ты говоришь',
-    'Твои старания обязательно приведут тебя к желаемому',
-    'Твои мечты исполнятся',
-    'Ты точно достигнешь своих целей',
-    'Я верю в тебя'
-
-]
-
-help_low_cases = []
-
-i_could_try_to_help_you = 'Я постараюсь поддержать, если тебе больно. Просто попроси.'
 
 
 def something ():
 
-    return random.choice (something_else)
+    return random.choice (texts.help__normal_letters)
 
 
 
@@ -56,29 +62,29 @@ dp = Dispatcher ()
 @dp.message (CommandStart ())
 async def command_start_handler (message: Message):
 
-    keyboard_presses = [[types.KeyboardButton (text = 'помогите')]]
+    keyboard_presses = [[types.KeyboardButton (text = texts.help_me_please)]]
 
     keyboard = types.ReplyKeyboardMarkup (
 
         keyboard = keyboard_presses,
         resize_keyboard = True,
-        input_field_placeholder = 'Постараюсь поддержать'
+        input_field_placeholder = texts.i_could_try_to_help_you
 
     )
 
-    await message.answer (greeting, reply_markup = keyboard)
+    await message.answer (texts.greeting, reply_markup = keyboard)
 
 
 @dp.message ()
 async def got_help_me (message: Message):
 
-    if message.text == 'помогите':
+    if message.text == texts.help_me_please:
 
         await message.answer (something ())
 
     else:
 
-        await message.answer (i_could_try_to_help_you)
+        await message.answer (texts.i_could_try_to_help_you)
 
 
 
