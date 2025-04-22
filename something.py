@@ -76,6 +76,15 @@ dp = Dispatcher ()
 @dp.message (CommandStart ())
 async def command_start_handler (message: Message):
 
+    bot_commands = [
+
+        types.BotCommand (command = '/help', description = "Get info about me"),
+        types.BotCommand (command = '/qna', description = "set bot for a QnA task"),
+        types.BotCommand (command = "/chat", description = "set bot for free chat")
+
+    ]
+    await bot.set_my_commands (bot_commands)
+
     keyboard_presses = [[types.KeyboardButton (text = texts.help_me_please)]]
 
     keyboard = types.ReplyKeyboardMarkup (
