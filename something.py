@@ -6,6 +6,7 @@ from aiogram import Bot, Dispatcher, html
 from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
 from aiogram.filters import CommandStart
+from aiogram import types
 from aiogram.types import Message
 
 
