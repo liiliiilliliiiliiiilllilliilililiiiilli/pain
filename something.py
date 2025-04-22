@@ -116,6 +116,18 @@ async def main ():
 
     bot = Bot (token = bot_token, default = DefaultBotProperties (parse_mode = ParseMode.HTML))
 
+
+    bot_commands = [
+
+        types.BotCommand (command = '/настройки', description = ''),
+        types.BotCommand (command = '/очистиь чат', description = '')
+
+    ]
+
+    await bot.set_my_commands (bot_commands)
+
+
+
     await dp.start_polling (bot)
 
 
