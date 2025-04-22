@@ -21,7 +21,13 @@ something_else = [
     'твоя боль оправдана',
     'ты сможешь',
     'у тебя все будет хорошо',
-    'ты хороший человек'
+    'ты хороший человек',
+    'что бы ни случилось, знай - ты сможешь',
+    'я ценю то, что ты говоришь',
+    'твои старания обязательно приведут тебя к желаемому',
+    'твои мечты исполнятся',
+    'ты точно достигнешь своих целей',
+    'я верю в тебя'
 
 ]
 
@@ -55,6 +61,8 @@ async def got_language (message: Message):
         # await message.answer (':[')
 
 
+
+
 async def main ():
 
     bot = Bot (token = bot_token, default = DefaultBotProperties (parse_mode = ParseMode.HTML))
@@ -64,4 +72,4 @@ async def main ():
 
 if __name__ == '__main__':
 
-    asyncio.run (main ())   
+    asyncio.run (main ())
