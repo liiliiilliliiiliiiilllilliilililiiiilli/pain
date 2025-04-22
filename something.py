@@ -48,7 +48,7 @@ dp = Dispatcher ()
 @dp.message (CommandStart ())
 async def command_start_handler (message: Message):
 
-    keyboard_presses = [types.KeyboardButton (text = 'помогите')]
+    keyboard_presses = [[types.KeyboardButton (text = 'помогите')]]
 
     keyboard = types.ReplyKeyboardMarkup (
 
