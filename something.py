@@ -45,7 +45,7 @@ dp = Dispatcher ()
 @dp.message (CommandStart ())
 async def command_start_handler (message: Message):
 
-    await message.answer (f'Привет. Если тебе очень плохо, можешь дать сигнал и я тебя поддержу. Также можешь попросить меня периодически писать, и я постараюсь сделать хоть что-то. Но я не знаю, насколько это может именить что-либо.')
+    await message.answer (greeting)
 
 
 @dp.message ()
