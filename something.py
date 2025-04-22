@@ -31,6 +31,8 @@ something_else = [
 
 ]
 
+i_could_try_to_help_you = 'я постараюсь поддержать, если тебе нужна помощь. просто попроси'
+
 
 def something ():
 
@@ -45,7 +47,17 @@ dp = Dispatcher ()
 @dp.message (CommandStart ())
 async def command_start_handler (message: Message):
 
-    await message.answer (greeting)
+    keyboard_presses = [types.KeyboardButton (text = 'помогите')]
+
+    keyboard = types.ReplyKeyboardMarkup (
+
+        keyboard = keyboard_presses,
+        resize_keyboard = True,
+        input_field_placeholder = 'я постараюсь поддержать'
+
+    )
+
+    await message.answer (greeting, reply_markup = keyboard)
 
 
 @dp.message ()
@@ -57,8 +69,7 @@ async def got_help_me (message: Message):
 
     else:
 
-        0
-        # await message.answer (':[')
+        await message.answer (i_could_try_to_help_you)
 
 
 
