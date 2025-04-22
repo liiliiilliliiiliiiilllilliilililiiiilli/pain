@@ -49,7 +49,7 @@ async def command_start_handler (message: Message):
 
 
 @dp.message ()
-async def got_language (message: Message):
+async def got_help_me (message: Message):
 
     if message.text == 'помогите':
 
