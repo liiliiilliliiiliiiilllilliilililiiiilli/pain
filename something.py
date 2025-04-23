@@ -379,7 +379,7 @@ async def command_start_handler (message: Message, state: FSMContext):
 
 
 @dp.message (Command ('about'))
-async def command_about ():
+async def command_about (message: Message, state: FSMContext):
 
     await state.set_state (Form.page_main)
 
@@ -387,7 +387,7 @@ async def command_about ():
 
 
 @dp.message (Command ('settings'))
-async def command_settings ():
+async def command_settings (message: Message, state: FSMContext):
 
     await state.set_state (Form.page_settings)
 
