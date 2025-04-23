@@ -323,7 +323,9 @@ keyboard_markup_main = types.ReplyKeyboardMarkup (
 keyboard_markup_settings = types.ReplyKeyboardMarkup (
 
     keyboard = [[
-        types.KeyboardButton (text = texts['from_user']['choose_bot_language']),
+        types.KeyboardButton (text = texts['from_user']['choose_bot_language'])
+    ],
+    [
         types.KeyboardButton (text = texts['from_user']['go_back'])
     ]],
     resize_keyboard = True,
