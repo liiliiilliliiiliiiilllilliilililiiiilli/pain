@@ -268,7 +268,8 @@ async def got_message (message: Message):
 
         settings_keyboard_presses = [
             
-            [types.KeyboardButton (text = texts['from_user']['go_back'])]
+            [types.KeyboardButton (text = texts['from_user']['go_back'])],
+            [types.KeyboardButton (text = texts['from_user']['choose_bot_language'])]
             
         ]
 
@@ -276,7 +277,7 @@ async def got_message (message: Message):
 
             keyboard = keyboard_presses,
             resize_keyboard = True,
-            input_field_placeholder = texts['from_bot']['choothe_the_settings']
+            input_field_placeholder = texts['from_bot']['set_up_this_bot']
 
         )
 
