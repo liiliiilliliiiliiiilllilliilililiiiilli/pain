@@ -36,7 +36,11 @@ texts_russian = {
 
         'chinese': 'Китайский',
 
-        # 'setted_language_russian': '',
+        'chosen_language_russian': 'Выбран язык: Русский',
+
+        'chosen_language_english': 'Выбран язык: Английский',
+
+        'chosen_language_chinese': 'Выбран язык: Китайский',
 
         'i_could_try_to_help_you': 'Поддержу',
 
@@ -436,6 +440,8 @@ async def settings_language_page_handler (message: Message, state: FSMContext):
 
         await state.set_state (Form.page_settings)
 
+        await message.answer (texts['from_bot']['chosen_language_russian'])
+
         await message.answer (
 
             texts['from_bot']['settings'],
@@ -449,6 +455,8 @@ async def settings_language_page_handler (message: Message, state: FSMContext):
 
         await state.set_state (Form.page_settings)
 
+        await message.answer (texts['from_bot']['chosen_language_english'])
+
         await message.answer (
 
             texts['from_bot']['settings'],
@@ -461,6 +469,8 @@ async def settings_language_page_handler (message: Message, state: FSMContext):
         # texts = texts_chinese
 
         await state.set_state (Form.page_settings)
+
+        await message.answer (texts['from_bot']['chosen_language_chinese'])
 
         await message.answer (
 
