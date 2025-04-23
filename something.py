@@ -114,8 +114,8 @@ async def main ():
 
     bot_commands = [
 
-        types.BotCommand (command = '/настройки', description = ''),
-        types.BotCommand (command = '/очистиь чат', description = '')
+        types.BotCommand (command = '/настройки', description = 'настройки бота'),
+        types.BotCommand (command = '/очистиь чат', description = 'что-то')
 
     ]
 
