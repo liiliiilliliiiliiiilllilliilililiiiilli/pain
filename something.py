@@ -364,7 +364,7 @@ bot = Bot (token = bot_token, default = DefaultBotProperties (parse_mode = Parse
 dp = Dispatcher ()
 
 
-@dp.message (CommandStart ())
+@dp.message (Command ('start'))
 async def command_start_handler (message: Message, state: FSMContext):
 
     await state.set_state (Form.page_main)
@@ -374,6 +374,27 @@ async def command_start_handler (message: Message, state: FSMContext):
 
         texts['from_bot']['greeting'],
         reply_markup = keyboard_markup_main
+
+    )
+
+
+@dp.message (Command ('about'))
+async def command_about ():
+
+    await state.set_state (Form.page_main)
+
+    await message.answer (texts['from_bot']['what_is_this_bot_about'])
+
+
+@dp.message (Command ('settings'))
+async def command_settings ():
+
+    await state.set_state (Form.page_settings)
+
+    await message. answer (
+
+        texts['from_bot']['settings'],
+        reply_markup = keyboard_markup_settings
 
     )
 
@@ -424,7 +445,7 @@ async def settings_page_handler (message: Message, state: FSMContext):
 
     elif message.text == texts['from_user']['go_back']:
 
-        await command_start_handler (message, state)
+        await command_start (message, state)
 
     else:
 
