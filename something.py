@@ -1,6 +1,7 @@
 import asyncio
 import sys
 import random
+import redis
 
 from aiogram import Bot, Dispatcher, html
 from aiogram.client.default import DefaultBotProperties
@@ -8,6 +9,9 @@ from aiogram.enums import ParseMode
 from aiogram.filters import CommandStart
 from aiogram import types
 from aiogram.types import Message
+
+
+db = redis.Redis (host = 'localhost', port = 6379, db = 0)
 
 
 bot_token = '8025972966:AAHaUFQxaH-7Uu1XHQGhp5t23WpWk63Cps0'
