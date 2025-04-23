@@ -103,7 +103,7 @@ texts_russian = {
 
         'help_me_please': 'Помогите',
 
-        'choose_bot_language': 'Выбрать язык бота',
+        'choose_bot_language': 'Язык интерфейса (Русский)',
 
         'go_back': 'Назад'
 
