@@ -81,7 +81,8 @@ texts_russian = {
 
         'commands': {
 
-            'about_this_bot': '/about_this_bot'
+            'about_this_bot': '/about_this_bot',
+            
 
         },
 
@@ -231,6 +232,29 @@ def something ():
 
 
 
+keyboard_markup_main = types.ReplyKeyboardMarkup (
+
+    keyboard = [
+        [types.KeyboardButton (text = texts['from_user']['help_me_please'])]
+    ],
+    resize_keyboard = True,
+    input_field_placeholder = texts['from_bot']['i_could_try_to_help_you']
+
+)
+
+
+keyboard_markup_settings = types.ReplyKeyboardMarkup (
+
+    keyboard = [
+        [types.KeyboardButton (text = texts['from_user']['choose_bot_language'])],
+        [types.KeyboardButton (text = texts['from_user']['go_back'])]
+    ],
+    resize_keyboard = True,
+    input_field_placeholder = texts['from_bot']['set_up_this_bot']
+
+)
+
+
 
 bot = Bot (token = bot_token, default = DefaultBotProperties (parse_mode = ParseMode.HTML))
 
@@ -239,16 +263,6 @@ dp = Dispatcher ()
 
 @dp.message (CommandStart ())
 async def command_start_handler (message: Message):
-
-    keyboard_presses = [[types.KeyboardButton (text = texts['from_user']['help_me_please'])]]
-
-    keyboard_markup = types.ReplyKeyboardMarkup (
-
-        keyboard = keyboard_presses,
-        resize_keyboard = True,
-        input_field_placeholder = texts['from_bot']['i_could_try_to_help_you']
-
-    )
 
     await message.answer (texts['from_bot']['greeting'], reply_markup = keyboard_markup)
 
@@ -265,21 +279,6 @@ async def got_message (message: Message):
         await message.answer (texts['from_bot']['what_is_this_bot_about'])
         
     elif message.text == texts['from_user']['commands']['settings']:
-
-        settings_keyboard_presses = [
-            
-            [types.KeyboardButton (text = texts['from_user']['go_back'])],
-            [types.KeyboardButton (text = texts['from_user']['choose_bot_language'])]
-            
-        ]
-
-        settings_keyboard_markup = types.ReplyKeyboardMarkup (
-
-            keyboard = keyboard_presses,
-            resize_keyboard = True,
-            input_field_placeholder = texts['from_bot']['set_up_this_bot']
-
-        )
 
         await message.answer (texts['from_bot']['greeting'], reply_markup = settings_keyboard_markup)
 
