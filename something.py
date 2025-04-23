@@ -94,7 +94,7 @@ texts_russian = {
 
         'commands': {
 
-            'about_this_bot': '/about_this_bot',
+            'about_this_bot': '/about',
             'settings': '/settings'
 
         },
@@ -192,7 +192,7 @@ texts_english = {
 
         'commands': {
 
-            'about_this_bot': '/about_this_bot',
+            'about_this_bot': '/about',
             'settings': '/settings'
 
         },
@@ -264,7 +264,7 @@ texts_chinese = {
 
         'commands': {
 
-            'about_this_bot': '/about_this_bot',
+            'about_this_bot': '/about',
             'settings': '/settings'
 
         },
