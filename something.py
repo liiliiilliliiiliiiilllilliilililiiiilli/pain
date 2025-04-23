@@ -69,7 +69,7 @@ texts = {
 
 def something ():
 
-    return random.choice (texts.from_bot.help__normal_letters)
+    return random.choice (texts['from_bot']['help__normal_letters'])
 
 
 
@@ -80,29 +80,29 @@ dp = Dispatcher ()
 @dp.message (CommandStart ())
 async def command_start_handler (message: Message):
 
-    keyboard_presses = [[types.KeyboardButton (text = texts.from_user.help_me_please)]]
+    keyboard_presses = [[types.KeyboardButton (text = texts['from_user']['help_me_please'])]]
 
     keyboard_markup = types.ReplyKeyboardMarkup (
 
         keyboard = keyboard_presses,
         resize_keyboard = True,
-        input_field_placeholder = texts.from_bot.i_could_try_to_help_you
+        input_field_placeholder = texts['from_bot']['i_could_try_to_help_you']
 
     )
 
-    await message.answer (texts.from_bot.greeting, reply_markup = keyboard_markup)
+    await message.answer (texts['from_bot']['greeting'], reply_markup = keyboard_markup)
 
 
 @dp.message ()
 async def got_help_me (message: Message):
 
-    if message.text == texts.from_user.help_me_please:
+    if message.text == texts['from_user']['help_me_please']:
 
         await message.answer (something ())
 
     else:
 
-        await message.answer (texts.from_bot.i_could_try_to_help_you)
+        await message.answer (texts['from_bot']['i_could_try_to_help_you'])
 
 
 
