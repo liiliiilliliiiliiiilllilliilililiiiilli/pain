@@ -464,7 +464,16 @@ async def settings_language_page_handler (message: Message, state: FSMContext):
 
         )
 
-    elif message.text == texts['from_user']['go_back']
+    elif message.text == texts['from_user']['go_back']:
+
+        await state.set_state (Form.page_settings)
+
+        await message.answer (
+
+            texts['from_bot']['settings_choose_a_button'],
+            reply_markup = keyboard_markup_settings
+
+        )
 
     else:
 
