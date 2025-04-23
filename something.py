@@ -318,7 +318,8 @@ keyboard_markup_main = types.ReplyKeyboardMarkup (
     keyboard = [[
         types.KeyboardButton (text = texts['from_user']['help_me_please'])
     ]],
-    resize_keyboard = True
+    resize_keyboard = True,
+    input_field_placeholder = 'k#(#₽/&3'
 
 )
 
