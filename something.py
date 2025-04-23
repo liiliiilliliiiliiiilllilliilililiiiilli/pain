@@ -314,7 +314,7 @@ bot_menu = [
 keyboard_markup_main = types.ReplyKeyboardMarkup (
 
     keyboard = [[
-        [types.KeyboardButton (text = texts['from_user']['help_me_please'])]
+        types.KeyboardButton (text = texts['from_user']['help_me_please'])
     ]],
     resize_keyboard = True,
     input_field_placeholder = texts['from_bot']['i_could_try_to_help_you']
@@ -325,8 +325,8 @@ keyboard_markup_main = types.ReplyKeyboardMarkup (
 keyboard_markup_settings = types.ReplyKeyboardMarkup (
 
     keyboard = [[
-        [types.KeyboardButton (text = texts['from_user']['choose_bot_language'])],
-        [types.KeyboardButton (text = texts['from_user']['go_back'])]
+        types.KeyboardButton (text = texts['from_user']['choose_bot_language']),
+        types.KeyboardButton (text = texts['from_user']['go_back'])
     ]],
     resize_keyboard = True,
     input_field_placeholder = texts['from_bot']['settings_choose_a_button']
@@ -337,9 +337,9 @@ keyboard_markup_settings = types.ReplyKeyboardMarkup (
 keyboard_markup_settings_language = types.ReplyKeyboardMarkup (
 
     keyboard = [[
-        [types.KeyboardButton (text = texts['from_bot']['russian'])]
-        [types.KeyboardButton (text = texts['from_bot']['english'])],
-        [types.KeyboardButton (text = texts['from_bot']['chinese'])]
+        types.KeyboardButton (text = texts['from_bot']['russian']),
+        types.KeyboardButton (text = texts['from_bot']['english']),
+        types.KeyboardButton (text = texts['from_bot']['chinese'])
     ]],
     resize_keyboard = True,
     input_field_placeholder = texts['from_bot']['settings_choose_a_button']
