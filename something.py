@@ -329,7 +329,7 @@ keyboard_markup_settings = types.ReplyKeyboardMarkup (
         [types.KeyboardButton (text = texts['from_user']['go_back'])]
     ],
     resize_keyboard = True,
-    input_field_placeholder = texts['from_bot']['set_up_this_bot']
+    input_field_placeholder = texts['from_bot']['settings_choose_a_button']
 
 )
 
