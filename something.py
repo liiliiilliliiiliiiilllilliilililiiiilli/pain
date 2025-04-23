@@ -28,7 +28,7 @@ texts_russian = {
 
         'what_is_this_bot_about': 'Я стараюсь, как могу, чтобы хоть в какой-то степени поддержать тех, кому больно. Напиши, и я отвечу. ',
 
-        'choose_a_language': 'Выберите язык',
+        'choose_a_language': 'Выберите язык:',
 
         'russian': 'Русский',
 
@@ -36,7 +36,11 @@ texts_russian = {
 
         'chinese': 'Китайский',
 
+        # 'setted_language_russian': '',
+
         'i_could_try_to_help_you': 'Поддержу',
+
+        'settings': 'Настройки бота:',
 
         'settings_choose_a_button': 'Выберите пункт',
 
@@ -390,7 +394,7 @@ async def got_message (message: Message, state: FSMContext):
 
         await message.answer (
 
-            texts['from_bot']['settings_choose_a_button'],
+            texts['from_bot']['settings'],
             reply_markup = keyboard_markup_settings
 
         )
@@ -431,12 +435,12 @@ async def settings_language_page_handler (message: Message, state: FSMContext):
 
         # texts = texts_russian
 
-        await state.set_state (Form.page_main)
+        await state.set_state (Form.page_settings)
 
         await message.answer (
 
-            texts['from_bot']['setted_language_russian'],
-            reply_markup = keyboard_markup_main
+            texts['from_bot']['settings'],
+            reply_markup = keyboard_markup_settings
 
         )
 
@@ -444,12 +448,12 @@ async def settings_language_page_handler (message: Message, state: FSMContext):
 
         # texts = texts_english
 
-        await state.set_state (Form.page_main)
+        await state.set_state (Form.page_settings)
 
         await message.answer (
 
-            texts['from_bot']['setted_language_english'],
-            reply_markup = keyboard_markup_main
+            texts['from_bot']['settings'],
+            reply_markup = keyboard_markup_settings
         
         )
 
@@ -457,12 +461,12 @@ async def settings_language_page_handler (message: Message, state: FSMContext):
 
         # texts = texts_chinese
 
-        await state.set_state (Form.page_main)
+        await state.set_state (Form.page_settings)
 
         await message.answer (
 
-            texts['from_bot']['setted_language_chinese'],
-            reply_markup = keyboard_markup_main
+            texts['from_bot']['settings'],
+            reply_markup = keyboard_markup_settings
 
         )
 
@@ -472,7 +476,7 @@ async def settings_language_page_handler (message: Message, state: FSMContext):
 
         await message.answer (
 
-            texts['from_bot']['settings_choose_a_button'],
+            texts['from_bot']['settings'],
             reply_markup = keyboard_markup_settings
 
         )
