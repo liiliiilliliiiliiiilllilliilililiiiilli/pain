@@ -368,7 +368,7 @@ async def command_start_handler (message: Message, state: FSMContext):
     )
 
 
-@dp.message ()
+@dp.message (Form.page_main)
 async def got_message (message: Message, state: FSMContext):
 
     if message.text == texts['from_user']['help_me_please']:
