@@ -29,7 +29,7 @@ texts_russian = {
 
         'i_could_try_to_help_you': 'Поддержу',
 
-        'set_up_this_bot': 'Настройки бота',
+        'settings_choose_a_button': 'Выберите пункт',
 
         'i_could_try_to_help_you_if_you_ask': 'Я всегда здесь. Просто попроси помощи, и я отвечу.',
 
@@ -83,11 +83,12 @@ texts_russian = {
 
         'commands': {
 
-            'about_this_bot': '/about_this_bot'
+            'about_this_bot': '/about_this_bot',
+            'settings': '/settings'
 
         },
 
-        'help_me_please': 'помогите',
+        'help_me_please': 'Помогите',
 
         'choose_bot_language': 'Выбрать язык бота',
 
@@ -109,6 +110,8 @@ texts_english = {
         'what_is_this_bot_about': 'I try my best to at least support those who are hurting. Write and I will answer.',
 
         'i_could_try_to_help_you': 'I will support',
+
+        'settings_choose_a_button': 'Choose button',
 
         'i_could_try_to_help_you_if_you_ask': 'I\'m always here. Just ask for help and I will answer.',
 
@@ -162,11 +165,14 @@ texts_english = {
 
         'commands': {
 
-            'about_this_bot': '/about_this_bot'
+            'about_this_bot': '/about_this_bot',
+            'settings': '/settings'
 
         },
 
-        'help_me_please': 'help'
+        'help_me_please': 'help',
+        'choose_bot_language': 'Choose bot language',
+        'go_back': 'Go back'
 
     }
 
@@ -184,6 +190,8 @@ texts_chinese = {
         'what_is_this_bot_about': '我尽力去支持那些正在受伤的人。写下来，我会回复。',
 
         'i_could_try_to_help_you': '我会支持',
+
+        'settings_choose_a_button': '选择按钮',
 
         'i_could_try_to_help_you_if_you_ask': '我一直在这里。只要你寻求帮助，我就会解答。',
 
@@ -215,11 +223,14 @@ texts_chinese = {
 
         'commands': {
 
-            'about_this_bot': '/about_this_bot'
+            'about_this_bot': '/about_this_bot',
+            'settings': '/settings'
 
         },
 
-        'help_me_please': '帮助'
+        'help_me_please': '帮助',
+        'choose_bot_language': '选择机器人语言',
+        'go_back': '回去'
 
     }
 
@@ -269,7 +280,7 @@ dp = Dispatcher ()
 @dp.message (CommandStart ())
 async def command_start_handler (message: Message):
 
-    await message.answer (texts['from_bot']['greeting'], reply_markup = keyboard_markup)
+    await message.answer (texts['from_bot']['greeting'], reply_markup = keyboard_markup_main)
 
 
 @dp.message ()
@@ -285,8 +296,7 @@ async def got_message (message: Message):
         
     elif message.text == texts['from_user']['commands']['settings']:
 
-        await message.answer (texts['from_bot']['greeting'], reply_markup = settings_keyboard_markup)
-
+        await message.answer (texts['from_bot']['settings_choose_a_button'], reply_markup = keyboard_markup_main)
 
     else:
 
@@ -299,14 +309,13 @@ async def main ():
 
     bot_commands = [
 
-        types.BotCommand (command = '/about_this_bot', description = 'Об этом боте')
-        # types.BotCommand (command = '/settings', description = 'настройки бота'),
+        types.BotCommand (command = '/about_this_bot', description = 'Об этом боте'),
+        types.BotCommand (command = '/settings', description = 'настройки бота')
         # types.BotCommand (command = '/wipe_chat', description = 'удалить все и начать заново')
 
     ]
 
     await bot.set_my_commands (bot_commands)
-
 
 
     await dp.start_polling (bot)
