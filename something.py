@@ -519,7 +519,7 @@ async def settings_language_page_handler (message: Message, state: FSMContext):
 
     elif message.text == texts['from_user']['go_home']:
 
-        command_start (message, state)
+        await command_start (message, state)
 
     else:
 
