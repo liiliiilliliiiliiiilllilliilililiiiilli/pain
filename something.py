@@ -36,11 +36,11 @@ texts_russian = {
 
         'chinese': 'Китайский',
 
-        'chosen_language_russian': 'Выбран язык: Русский',
+        'chosen_language_russian': '🇷🇺  Выбран язык: Русский',
 
-        'chosen_language_english': 'Выбран язык: Английский',
+        'chosen_language_english': '🇬🇧  Выбран язык: Английский',
 
-        'chosen_language_chinese': 'Выбран язык: Китайский',
+        'chosen_language_chinese': '🇨🇳  Выбран язык: Китайский',
 
         'i_could_try_to_help_you': 'Поддержу',
 
