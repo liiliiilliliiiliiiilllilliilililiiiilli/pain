@@ -80,6 +80,8 @@ def something ():
 
 
 
+bot = Bot (token = bot_token, default = DefaultBotProperties (parse_mode = ParseMode.HTML))
+
 dp = Dispatcher ()
 
 
@@ -118,9 +120,6 @@ async def got_help_me (message: Message):
 
 
 async def main ():
-
-    bot = Bot (token = bot_token, default = DefaultBotProperties (parse_mode = ParseMode.HTML))
-
 
     bot_commands = [
 
