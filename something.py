@@ -100,6 +100,10 @@ async def got_help_me (message: Message):
 
         await message.answer (something ())
 
+    elif message.text == texts['from_user']['commands']['wipe_chat']:
+
+        await bot.delete_messages (message.chat.id, range (1, message.message_id))
+
     else:
 
         await message.answer (texts['from_bot']['i_could_try_to_help_you'])
