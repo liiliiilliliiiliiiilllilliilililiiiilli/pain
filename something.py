@@ -36,7 +36,13 @@ texts = {
             'Твои старания обязательно приведут тебя к желаемому',
             'Твои мечты исполнятся',
             'Ты точно достигнешь своих целей',
-            'Я верю в тебя'
+            'Я верю в тебя',
+            'Я люблю тебя',
+            'Мне нравится проводить с тобой время',
+            'Как хорошо иметь такого друга, как ты',
+            'Ты лучшее, что было в моей жизни',
+            'Мне нравится вспоминать время, проведенное с тобой',
+            'Ты мне нравишься'
 
         ],
 
@@ -52,7 +58,13 @@ texts = {
             'твои старания обязательно приведут тебя к желаемому',                                                                                                
             'твои мечты исполнятся',                                                                                                                              
             'ты точно достигнешь своих целей',                                                                                                                    
-            'я верю в тебя'
+            'я верю в тебя',
+            'я люблю тебя',
+            'мне нравится проводить с тобой время',
+            'как хорошо иметь такого друга, как ты',
+            'ты лучшее, что было в моей жизни',
+            'мне навится вспоминать время, проведенное с тобой',
+            'ты мне нравишься'
 
         ]
 
@@ -108,9 +120,9 @@ async def got_help_me (message: Message):
 
         await message.answer (something ())
 
-    elif message.text == texts['from_user']['commands']['wipe_chat']:
+    # elif message.text == texts['from_user']['commands']['wipe_chat']:
 
-        await bot.delete_messages (message.chat.id, range (1, message.message_id))
+        # await bot.delete_messages (message.chat.id, range (1, message.message_id))
 
     else:
 
@@ -124,7 +136,7 @@ async def main ():
     bot_commands = [
 
         types.BotCommand (command = '/settings', description = 'настройки бота'),
-        types.BotCommand (command = '/wipe_chat', description = 'удалить все и начать заново')
+        # types.BotCommand (command = '/wipe_chat', description = 'удалить все и начать заново')
 
     ]
 
