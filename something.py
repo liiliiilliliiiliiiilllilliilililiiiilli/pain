@@ -416,6 +416,10 @@ async def settings_page_handler (message: Message, state: FSMContext):
 
         await command_start_handler (message, state)
 
+    else:
+
+        await message.answer (texts['from_bot']['i_could_try_to_help_you_if_you_ask'])
+
 
 @dp.message (Form.page_settings_languages)
 async def settings_language_page_handler (message: Message, state: FSMContext):
