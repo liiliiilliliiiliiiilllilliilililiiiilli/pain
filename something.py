@@ -96,7 +96,7 @@ texts_english = {
 
     'from_bot': {
 
-        'greeting': 'Hi. If you\'re feeling really bad, you can give me a signal and I\'ll support you. I\'ll try to do at least something, but I don\'t know how much it can change anything.'',
+        'greeting': 'Hi. If you\'re feeling really bad, you can give me a signal and I\'ll support you. I\'ll try to do at least something, but I don\'t know how much it can change anything.',
 
         'i_could_try_to_help_you': 'I\'ll try to support you if you\'re in pain. Just ask.',
 
@@ -196,8 +196,8 @@ texts_chinese = {
             '我相信你',
             '我爱你',
             '我爱你',
-            '有你这样的朋友真好','
-            '你是我一生中遇到的最美好的事,
+            '有你这样的朋友真好',
+            '你是我一生中遇到的最美好的事',
             '我喜欢回忆和你在一起的时光',
             '我喜欢你'
 
@@ -264,8 +264,24 @@ async def got_message (message: Message):
 
         await message.answer (texts['from_bot']['what_is_this_bot_about'])
         
-       
-       
+    elif message.text == texts['from_user']['commands']['settings']:
+
+        settings_keyboard_presses = [
+            
+            [types.KeyboardButton (text = texts['from_user']['go_back'])]
+            
+        ]
+
+        settings_keyboard_markup = types.ReplyKeyboardMarkup (
+
+            keyboard = keyboard_presses,
+            resize_keyboard = True,
+            input_field_placeholder = texts['from_bot']['choothe_the_settings']
+
+        )
+
+        await message.answer (texts['from_bot']['greeting'], reply_markup = settings_keyboard_markup)
+
 
     else:
 
