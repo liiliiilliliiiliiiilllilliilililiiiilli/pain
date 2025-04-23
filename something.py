@@ -62,7 +62,7 @@ texts = {
 
         'commands': {
 
-            'wipe_chat': 'wipe_chat',
+            'wipe_chat': '/wipe_chat',
 
         },
 
