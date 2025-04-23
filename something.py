@@ -365,7 +365,7 @@ dp = Dispatcher ()
 
 
 @dp.message (Command ('start'))
-async def command_start_handler (message: Message, state: FSMContext):
+async def command_start (message: Message, state: FSMContext):
 
     await state.set_state (Form.page_main)
 
