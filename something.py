@@ -373,7 +373,7 @@ async def got_message (message: Message, state: FSMContext):
 
     if message.text == texts['from_user']['help_me_please']:
 
-        await state.set_state (Form.main)
+        await state.set_state (Form.page_main)
         await message.answer (something ())
 
     elif message.text == texts['from_user']['commands']['about_this_bot']:
