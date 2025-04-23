@@ -338,6 +338,9 @@ keyboard_markup_settings_language = types.ReplyKeyboardMarkup (
         types.KeyboardButton (text = texts['from_bot']['russian']),
         types.KeyboardButton (text = texts['from_bot']['english']),
         types.KeyboardButton (text = texts['from_bot']['chinese'])
+    ],
+    [
+        types.KeyboardButton (text = texts['from_user']['go_back'])
     ]],
     resize_keyboard = True,
     input_field_placeholder = texts['from_bot']['settings_choose_a_button']
