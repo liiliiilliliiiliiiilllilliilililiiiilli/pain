@@ -17,8 +17,7 @@ db = redis.Redis (host = 'localhost', port = 6379, db = 0)
 bot_token = '8025972966:AAHaUFQxaH-7Uu1XHQGhp5t23WpWk63Cps0'
 
 
-
-texts = {
+texts_russian = {
 
     'from_bot': {
 
@@ -32,7 +31,7 @@ texts = {
 
         'i_could_try_to_help_you_if_you_ask': 'Я всегда здесь. Просто попроси помощи, и я отвечу.',
 
-        'help__normal_letters': [
+        'help_normal_letters': [
 
             'У тебя все получится',
             'Твоя боль оправдана',
@@ -54,18 +53,18 @@ texts = {
 
         ],
 
-        'help__low_letters': [
+        'help_low_letters': [
 
-            'у тебя все получится',                                                                                                                               
-            'твоя боль оправдана',                                                                                                                                
-            'ты сможешь',                                                                                                                                         
-            'у тебя все будет хорошо',                                                                                                                            
-            'ты хороший человек',                                                                                                                                 
-            'что бы ни случилось, знай - ты сможешь',                                                                                                             
-            'я ценю то, что ты говоришь',                                                                                                                         
-            'твои старания обязательно приведут тебя к желаемому',                                                                                                
-            'твои мечты исполнятся',                                                                                                                              
-            'ты достигнешь своих целей',                                                                                                                    
+            'у тебя все получится',
+            'твоя боль оправдана',
+            'ты сможешь',
+            'у тебя все будет хорошо',
+            'ты хороший человек',
+            'что бы ни случилось, знай - ты сможешь',
+            'я ценю то, что ты говоришь',
+            'твои старания обязательно приведут тебя к желаемому',
+            'твои мечты исполнятся',
+            'ты достигнешь своих целей',
             'я верю в тебя',
             'я люблю тебя',
             'мне нравится проводить с тобой время',
@@ -83,7 +82,6 @@ texts = {
         'commands': {
 
             'about_this_bot': '/about_this_bot'
-            # 'wipe_chat': '/wipe_chat',
 
         },
 
@@ -94,9 +92,142 @@ texts = {
 }
 
 
+texts_english = {
+
+    'from_bot': {
+
+        'greeting': 'Hi. If you\'re feeling really bad, you can give me a signal and I\'ll support you. I\'ll try to do at least something, but I don\'t know how much it can change anything.'',
+
+        'i_could_try_to_help_you': 'I\'ll try to support you if you\'re in pain. Just ask.',
+
+        'what_is_this_bot_about': 'I try my best to at least support those who are hurting. Write and I will answer.',
+
+        'i_could_try_to_help_you': 'I will support',
+
+        'i_could_try_to_help_you_if_you_ask': 'I\'m always here. Just ask for help and I will answer.',
+
+        'help_normal_letters': [
+
+            'You can do it',
+            'Your pain is justified',
+            'You will succeed',
+            'You will be fine.',
+            'You are a good person',
+            'Whatever happens, know that you can do it.',
+            'I appreciate what you say.',
+            'Your efforts will definitely lead you to what you want.',
+            'Your dreams will come true',
+            'You will achieve your goals',
+            'I believe in you',
+            'I love you',
+            'I enjoy spending time with you',
+            'How nice to have a friend like you',
+            'You are the best thing that has ever happened to me in my life',
+            'I like to remember the time spent with you',
+            'I like you'
+
+        ],
+
+        'help_low_letters': [
+            
+            'you can do it',
+            'your pain is justified',
+            'you will succeed',
+            'you will be fine.',
+            'you are a good person',
+            'whatever happens, know that you can do it.',
+            'i appreciate what you say.',
+            'your efforts will definitely lead you to what you want.',
+            'your dreams will come true',
+            'you will achieve your goals',
+            'i believe in you',
+            'i love you',
+            'i enjoy spending time with you',
+            'how nice to have a friend like you',
+            'you are the best thing that has ever happened to me in my life',
+            'i like to remember the time spent with you',
+            'i like you'
+            
+        ]
+
+    },
+
+    'from_user': {
+
+        'commands': {
+
+            'about_this_bot': '/about_this_bot'
+
+        },
+
+        'help_me_please': 'help'
+
+    }
+
+}
+
+
+texts_chinese = {
+
+    'from_bot': {
+
+        'greeting': '你好。如果你感觉真的很糟糕，你可以给我一个信号，我会支持你。我会尝试做至少一些事情，但我不知道这能改变多少事情。',
+
+        'i_could_try_to_help_you': '如果你感到疼痛，我会尽力支持你。尽管说。',
+
+        'what_is_this_bot_about': '我尽力去支持那些正在受伤的人。写下来，我会回复。',
+
+        'i_could_try_to_help_you': '我会支持',
+
+        'i_could_try_to_help_you_if_you_ask': '我一直在这里。只要你寻求帮助，我就会解答。',
+
+        'help_normal_letters': [
+
+            '你能做到',
+            '你的痛苦是合理的',
+            '谢谢你',
+            '你会没事的',
+            '你是个好人',
+            '无论发生什么，你要相信自己可以做到',
+            '我很感激你所说的话',
+            '你的努力一定会让你得到你想要的',
+            '你的梦想将会实现',
+            '你会实现你的目标',
+            '我相信你',
+            '我爱你',
+            '我爱你',
+            '有你这样的朋友真好','
+            '你是我一生中遇到的最美好的事,
+            '我喜欢回忆和你在一起的时光',
+            '我喜欢你'
+
+        ]
+
+    },
+
+    'from_user': {
+
+        'commands': {
+
+            'about_this_bot': '/about_this_bot'
+
+        },
+
+        'help_me_please': '帮助'
+
+    }
+
+}
+
+
+texts = texts_russian
+
+
+
+
 def something ():
 
-    return random.choice (texts['from_bot']['help__normal_letters'])
+    return random.choice (texts['from_bot']['help_normal_letters'])
 
 
 
@@ -123,7 +254,7 @@ async def command_start_handler (message: Message):
 
 
 @dp.message ()
-async def got_help_me (message: Message):
+async def got_message (message: Message):
 
     if message.text == texts['from_user']['help_me_please']:
 
@@ -132,10 +263,9 @@ async def got_help_me (message: Message):
     elif message.text == texts['from_user']['commands']['about_this_bot']:
 
         await message.answer (texts['from_bot']['what_is_this_bot_about'])
-
-    # elif message.text == texts['from_user']['commands']['wipe_chat']:
-
-        # await bot.delete_messages (message.chat.id, range (1, message.message_id))
+        
+       
+       
 
     else:
 
