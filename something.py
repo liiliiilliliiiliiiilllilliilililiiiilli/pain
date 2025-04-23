@@ -22,6 +22,8 @@ texts = {
 
         'i_could_try_to_help_you': 'Я постараюсь поддержать, если тебе больно. Просто попроси.',
 
+        'what_is_this_bot_about': 'Я стараюсь, как могу, чтобы хоть в какой-то степени поддержать тех, кому больно. Напиши, и я отвечу. ',
+
         'i_could_try_to_help_you': 'Постараюсь поддержать',
 
         'help__normal_letters': [
@@ -74,7 +76,8 @@ texts = {
 
         'commands': {
 
-            'wipe_chat': '/wipe_chat',
+            'about_this_bot': '/about_this_bot'
+            # 'wipe_chat': '/wipe_chat',
 
         },
 
@@ -120,6 +123,10 @@ async def got_help_me (message: Message):
 
         await message.answer (something ())
 
+    elif message.text == texts['from_user']['commands']['about_this_bot']:
+
+        await message.answer (texts['from_bot']['what_is_this_bot_about'])
+
     # elif message.text == texts['from_user']['commands']['wipe_chat']:
 
         # await bot.delete_messages (message.chat.id, range (1, message.message_id))
@@ -135,7 +142,8 @@ async def main ():
 
     bot_commands = [
 
-        types.BotCommand (command = '/settings', description = 'настройки бота'),
+        types.BotCommand (command = '/about_this_bot', description = 'Об этом боте')
+        # types.BotCommand (command = '/settings', description = 'настройки бота'),
         # types.BotCommand (command = '/wipe_chat', description = 'удалить все и начать заново')
 
     ]
