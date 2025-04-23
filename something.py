@@ -508,7 +508,7 @@ async def settings_language_page_handler (message: Message, state: FSMContext):
 
         )
 
-    elif message.text == texts['from_user']['go_back']:
+    elif message.text == texts['from_user']['cancel']:
 
         await state.set_state (Form.page_settings)
 
