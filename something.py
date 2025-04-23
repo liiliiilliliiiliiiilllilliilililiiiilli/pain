@@ -26,7 +26,7 @@ texts = {
 
         'i_could_try_to_help_you': 'Поддержу',
 
-        'i_could_try_to_help_you_if_you_ask': 'Я всегда здесь. Прсто попроси помощи, и я отвечу.',
+        'i_could_try_to_help_you_if_you_ask': 'Я всегда здесь. Просто попроси помощи, и я отвечу.',
 
         'help__normal_letters': [
 
