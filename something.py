@@ -24,7 +24,9 @@ texts = {
 
         'what_is_this_bot_about': 'Я стараюсь, как могу, чтобы хоть в какой-то степени поддержать тех, кому больно. Напиши, и я отвечу. ',
 
-        'i_could_try_to_help_you': 'Постараюсь поддержать',
+        'i_could_try_to_help_you': 'Поддержу',
+
+        'i_could_try_to_help_you_if_you_ask': 'Я всегда здесь. Попроси помощи, и я отвечу.',
 
         'help__normal_letters': [
 
@@ -133,7 +135,7 @@ async def got_help_me (message: Message):
 
     else:
 
-        await message.answer (texts['from_bot']['i_could_try_to_help_you'])
+        await message.answer (texts['from_bot']['i_could_try_to_help_you_if_you_ask'])
 
 
 
