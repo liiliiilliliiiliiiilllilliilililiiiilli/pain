@@ -418,7 +418,7 @@ async def settings_page_handler (message: Message, state: FSMContext):
 
 
 @dp.message (Form.page_settings_languages)
-async def settings_language_page_handler (message: Message):
+async def settings_language_page_handler (message: Message, state: FSMContext):
 
     if message.text == texts['from_bot']['russian']:
 
