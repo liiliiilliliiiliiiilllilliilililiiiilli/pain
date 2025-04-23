@@ -414,7 +414,7 @@ async def settings_page_handler (message: Message, state: FSMContext):
 
     elif message.text == texts['from_user']['go_back']:
 
-        await command_start_handler (message)
+        await command_start_handler (message, state)
 
 
 @dp.message (Form.page_settings_languages)
