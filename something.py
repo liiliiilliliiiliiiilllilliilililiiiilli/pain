@@ -20,13 +20,16 @@ db = redis.Redis (host = 'localhost', port = 6379, db = 0)
 bot_token = '8025972966:AAHaUFQxaH-7Uu1XHQGhp5t23WpWk63Cps0'
 
 
+
 texts_russian = {
 
     'from_bot': {
 
-        'greeting': 'Привет. Если тебе очень плохо, можешь дать сигнал и я тебя поддержу. Я постараюсь сделать хоть что-то, но я не знаю, насколько это может изменить что-либо.',
+        'greeting_first': 'Привет... Если тебе очень плохо, подай сигнал, и я тебя поддержу. Я постараюсь сделать хоть что-то, чтобы помочь, но не знаю, может ли это что-либо изменить.',
 
-        'what_is_this_bot_about': 'Я стараюсь, как могу, чтобы хоть в какой-то степени поддержать тех, кому больно. Напиши, и я отвечу. ',
+        'greeting_regular': 'Если тебе очень плохо, подай сигнал, и я тебя поддержу. Я постараюсь сделать хоть что-то, чтобы помочь, но не знаю, может ли это что-либо изменить.',
+
+        'what_is_this_bot_about': 'Я стараюсь, как могу, чтобы хоть в какой-то степени поддержать тех, кому больно. Напиши, и я отвечу.',
 
         'choose_a_language': '🌐  Выберите язык:',
 
@@ -109,7 +112,9 @@ texts_russian = {
 
         'choose_bot_language': 'Язык интерфейса (Русский)',
 
-        'go_back': 'Назад'
+        'go_back': 'Назад',
+
+        'go_home': 'На главную'
 
     },
 
@@ -349,7 +354,8 @@ keyboard_markup_settings_language = types.ReplyKeyboardMarkup (
         types.KeyboardButton (text = texts['from_bot']['chinese'])
     ],
     [
-        types.KeyboardButton (text = texts['from_user']['go_back'])
+        types.KeyboardButton (text = texts['from_user']['go_back']),
+        types.KeyboardButton (text = texts['from_user']['go_home'])
     ]],
     resize_keyboard = True,
     input_field_placeholder = texts['from_bot']['settings_choose_a_button']
@@ -372,7 +378,7 @@ async def command_start (message: Message, state: FSMContext):
     await bot.set_my_commands (bot_menu)
     await message.answer (
 
-        texts['from_bot']['greeting'],
+        texts['from_bot']['greeting_first' if message.text == '/start' else 'greeting_regular'],
         reply_markup = keyboard_markup_main
 
     )
@@ -391,7 +397,7 @@ async def command_settings (message: Message, state: FSMContext):
 
     await state.set_state (Form.page_settings)
 
-    await message. answer (
+    await message.answer (
 
         texts['from_bot']['settings'],
         reply_markup = keyboard_markup_settings
@@ -510,6 +516,10 @@ async def settings_language_page_handler (message: Message, state: FSMContext):
             reply_markup = keyboard_markup_settings
 
         )
+
+    elif message.text == texts['from_user']['go_home']:
+
+        command_start (message, state)
 
     else:
 
