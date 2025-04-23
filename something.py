@@ -107,7 +107,7 @@ texts_russian = {
 
     },
 
-    menu: {
+    'menu': {
 
         '/about': 'О боте',
         '/settings': 'Настройки'
@@ -203,7 +203,7 @@ texts_english = {
 
     },
 
-    menu: {
+    'menu': {
 
         '/about': 'About this bot',
         '/settings': 'Settings'
