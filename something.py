@@ -109,8 +109,8 @@ texts_russian = {
 
     'menu': {
 
-        '/about': 'О боте',
-        '/settings': 'Настройки'
+        'about': 'О боте',
+        'settings': 'Настройки'
 
     }
 
@@ -205,8 +205,8 @@ texts_english = {
 
     'menu': {
 
-        '/about': 'About this bot',
-        '/settings': 'Settings'
+        'about': 'About this bot',
+        'settings': 'Settings'
     }
 
 }
@@ -277,8 +277,8 @@ texts_chinese = {
 
     'menu': {
 
-        '/about': '关于这个机器人',
-        '/settings': '设置'
+        'about': '关于这个机器人',
+        'settings': '设置'
     }
 
 }
