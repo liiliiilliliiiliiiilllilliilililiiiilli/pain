@@ -114,6 +114,8 @@ texts_russian = {
 
         'go_back': 'Назад',
 
+        'cancel': 'Отмена',
+
         'go_home': 'На главную'
 
     },
@@ -354,7 +356,7 @@ keyboard_markup_settings_language = types.ReplyKeyboardMarkup (
         types.KeyboardButton (text = texts['from_bot']['chinese'])
     ],
     [
-        types.KeyboardButton (text = texts['from_user']['go_back']),
+        types.KeyboardButton (text = texts['from_user']['cancel']),
         types.KeyboardButton (text = texts['from_user']['go_home'])
     ]],
     resize_keyboard = True,
