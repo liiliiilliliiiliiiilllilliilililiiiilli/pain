@@ -355,7 +355,7 @@ dp = Dispatcher ()
 
 
 @dp.message (CommandStart ())
-async def command_start_handler (message: Message):
+async def command_start_handler (message: Message, state: FSMContext):
 
     await state.set_state (Form.page_main)
 
@@ -369,7 +369,7 @@ async def command_start_handler (message: Message):
 
 
 @dp.message ()
-async def got_message (message: Message):
+async def got_message (message: Message, state: FSMContext):
 
     if message.text == texts['from_user']['help_me_please']:
 
@@ -399,7 +399,7 @@ async def got_message (message: Message):
 
 
 @dp.message (Form.page_settings)
-async def settings_page_handler (message: Message):
+async def settings_page_handler (message: Message, state: FSMContext):
 
     if message.text == texts['from_user']['choose_bot_language']:
 
