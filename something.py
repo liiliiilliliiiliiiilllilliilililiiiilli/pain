@@ -464,6 +464,8 @@ async def settings_language_page_handler (message: Message, state: FSMContext):
 
         )
 
+    elif message.text == texts['from_user']['go_back']
+
     else:
 
         await message.answer (texts['from_bot']['i_could_try_to_help_you_if_you_ask'])
