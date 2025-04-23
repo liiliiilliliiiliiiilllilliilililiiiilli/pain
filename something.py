@@ -29,6 +29,8 @@ texts_russian = {
 
         'i_could_try_to_help_you': 'Поддержу',
 
+        'set_up_this_bot': 'Настройки бота',
+
         'i_could_try_to_help_you_if_you_ask': 'Я всегда здесь. Просто попроси помощи, и я отвечу.',
 
         'help_normal_letters': [
@@ -81,12 +83,15 @@ texts_russian = {
 
         'commands': {
 
-            'about_this_bot': '/about_this_bot',
-            
+            'about_this_bot': '/about_this_bot'
 
         },
 
-        'help_me_please': 'помогите'
+        'help_me_please': 'помогите',
+
+        'choose_bot_language': 'Выбрать язык бота',
+
+        'go_back': 'Назад'
 
     }
 
