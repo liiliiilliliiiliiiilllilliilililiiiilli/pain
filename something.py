@@ -613,9 +613,9 @@ async def command_settings (message: Message, state: FSMContext):
 
 
 @dp.callback_query ()
-async def settings_outing (call: CallbackQuery):
+async def settings_outing (call: CallbackQuery, state: FSMContext):
 
-    if call.message.text == texts['from_user']['choose_bot_language']:
+    if call.data == texts['from_user']['choose_bot_language']:
 
         await state.set_state (Form.page_settings_languages)
 
@@ -626,11 +626,11 @@ async def settings_outing (call: CallbackQuery):
 
         )
 
-    elif call.message.text == texts['from_user']['go_home']:
+    elif call.data == texts['from_user']['go_home']:
 
         await command_start (call.message, state)
 
-    elif call.message.text == texts['from_user']['go_back']:
+    elif call.data == texts['from_user']['go_back']:
 
         await state.set_state (Form.page_settings)
 
