@@ -45,6 +45,8 @@ texts_russian = {
 
         'chosen_language_chinese': '🇨🇳 Выбран язык: Китайский.',
 
+        'our_channel': 'Наш канал',
+
         'i_could_try_to_help_you': 'Поддержу',
 
         'settings': '⚙️ Настройки бота:',
@@ -148,6 +150,7 @@ texts_english = {
 
         'chinese': 'Chinese',
 
+        'our_channel': 'Our channel',
 
         'i_could_try_to_help_you': 'I will support',
 
@@ -245,6 +248,8 @@ texts_chinese = {
 
         'chinese': '中国',
 
+        'our_channel': '我们的频道',
+
         'settings_choose_a_button': '选择按钮',
 
         'i_could_try_to_help_you_if_you_ask': '我一直在这里。只要你寻求帮助，我就会解答。',
@@ -340,10 +345,22 @@ keyboard_markup_settings = types.ReplyKeyboardMarkup (
         types.KeyboardButton (text = texts['from_user']['choose_bot_language'])
     ],
     [
-        types.KeyboardButton (text = texts['from_user']['go_back'])
+        types.KeyboardButton (text = texts['from_user']['go_home'])
     ]],
     resize_keyboard = True,
     input_field_placeholder = texts['from_bot']['settings_choose_a_button']
+
+)
+
+
+inline_keyboard_markup_about = types.InlineyboardMarkup (
+
+    keyboard = [[
+        types.InlineKeyboardButton (text = texts['from_bot']['our_channel'], url = 'https://t.me/li_ta_mi')
+    ],
+    [
+        types.InlineKeyboardButton (text = texts['from_user']['go_home'])
+    ]]
 
 )
 
@@ -391,7 +408,12 @@ async def command_about (message: Message, state: FSMContext):
 
     await state.set_state (Form.page_main)
 
-    await message.answer (texts['from_bot']['what_is_this_bot_about'])
+    await message.answer (
+        
+        texts['from_bot']['what_is_this_bot_about'],
+        reply_markup = inline_keyboard_markup_about
+        
+    )
 
 
 @dp.message (Command ('settings'))
