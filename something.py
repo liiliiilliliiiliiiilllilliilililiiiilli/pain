@@ -12,6 +12,7 @@ from aiogram.enums import ParseMode
 from aiogram.filters import Command
 from aiogram import types
 from aiogram.types import Message
+from aiogram.types import CallbackQuery
 
 
 db = redis.Redis (host = 'localhost', port = 6379, db = 0)
