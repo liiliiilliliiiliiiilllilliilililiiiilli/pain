@@ -470,7 +470,7 @@ async def settings_page_handler (message: Message, state: FSMContext):
 
         )
 
-    elif message.text == texts['from_user']['go_back']:
+    elif message.text == texts['from_user']['go_home']:
 
         await command_start (message, state)
 
