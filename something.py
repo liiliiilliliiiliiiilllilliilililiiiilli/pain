@@ -512,23 +512,23 @@ bot_menu = [
 
 keyboard_markup_main = types.InlineKeyboardMarkup (
 
-    keyboard = [[
+    inline_keyboard = [[
         types.InlineKeyboardButton (text = texts['from_user']['help_me_please'])
     ]],
-    resize_keyboard = True
+    # resize_keyboard = True
 
 )
 
 
 keyboard_markup_settings = types.InlineKeyboardMarkup (
 
-    keyboard = [[
+    inline_keyboard = [[
         types.InlineButton (text = texts['from_user']['choose_bot_language'])
     ],
     [
         types.InlineButton (text = texts['from_user']['go_home'])
     ]],
-    resize_keyboard = True,
+    # resize_keyboard = True,
     # input_field_placeholder = texts['from_bot']['settings_choose_a_button']
 
 )
@@ -545,7 +545,7 @@ inline_keyboard_markup_about = types.InlineKeyboardMarkup (
 
 keyboard_markup_settings_language = types.InlineKeyboardMarkup (
 
-    keyboard = [[
+    inline_keyboard = [[
         types.InlineKeyboardButton (text = texts['from_bot']['russian']),
         types.InlineKeyboardButton (text = texts['from_bot']['english']),
         types.InlineKeyboardButton (text = texts['from_bot']['chinese'])
@@ -554,7 +554,7 @@ keyboard_markup_settings_language = types.InlineKeyboardMarkup (
         types.InlineKeyboardButton (text = texts['from_user']['go_back']),
         types.InlineKeyboardButton (text = texts['from_user']['go_home'])
     ]],
-    resize_keyboard = True,
+    # resize_keyboard = True,
     # input_field_placeholder = texts['from_bot']['settings_choose_a_button']
 
 )
