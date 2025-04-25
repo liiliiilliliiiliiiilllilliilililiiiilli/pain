@@ -622,6 +622,8 @@ async def settings_outing (call: CallbackQuery, state: FSMContext):
 
         await state.set_state (Form.page_settings_languages)
 
+        await bot.delete_message (chat_id = call.message.chat.id, message_id = call.message.message_id)
+
         await call.message.answer (
 
             texts['from_bot']['choose_a_language'],
@@ -631,11 +633,15 @@ async def settings_outing (call: CallbackQuery, state: FSMContext):
 
     elif call.data == texts['from_user']['go_home']:
 
+        await bot.delete_message (chat_id = call.message.chat.id, message_id = call.message.message_id)
+
         await command_start (call.message, state)
 
     elif call.data == texts['from_user']['go_back']:
 
         await state.set_state (Form.page_settings)
+
+        await bot.delete_message (chat_id = call.message.chat.id, message_id = call.message.message_id)
 
         await call.message.answer (
 
