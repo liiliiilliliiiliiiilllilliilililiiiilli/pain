@@ -353,7 +353,7 @@ keyboard_markup_settings = types.ReplyKeyboardMarkup (
 )
 
 
-inline_keyboard_markup_about = types.InlineyboardMarkup (
+inline_keyboard_markup_about = types.InlineKeyboardMarkup (
 
     keyboard = [[
         types.InlineKeyboardButton (text = texts['from_bot']['our_channel'], url = 'https://t.me/li_ta_mi')
