@@ -634,7 +634,7 @@ async def settings_outing (call: CallbackQuery, state: FSMContext):
 
         await state.set_state (Form.page_settings)
 
-        await message.answer (
+        await call.message.answer (
 
             texts['from_bot']['settings'],
             reply_markup = keyboard_markup_settings
