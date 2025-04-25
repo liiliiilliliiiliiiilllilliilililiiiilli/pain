@@ -523,10 +523,10 @@ keyboard_markup_main = types.InlineKeyboardMarkup (
 keyboard_markup_settings = types.InlineKeyboardMarkup (
 
     inline_keyboard = [[
-        types.InlineButton (text = texts['from_user']['choose_bot_language'])
+        types.InlineKeyboardButton (text = texts['from_user']['choose_bot_language'])
     ],
     [
-        types.InlineButton (text = texts['from_user']['go_home'])
+        types.InlineKeyboardButton (text = texts['from_user']['go_home'])
     ]],
     # resize_keyboard = True,
     # input_field_placeholder = texts['from_bot']['settings_choose_a_button']
