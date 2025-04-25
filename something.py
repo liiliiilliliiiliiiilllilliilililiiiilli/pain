@@ -370,7 +370,7 @@ keyboard_markup_settings_language = types.ReplyKeyboardMarkup (
         types.KeyboardButton (text = texts['from_bot']['chinese'])
     ],
     [
-        types.KeyboardButton (text = texts['from_user']['cancel']),
+        types.KeyboardButton (text = texts['from_user']['go_back']),
         types.KeyboardButton (text = texts['from_user']['go_home'])
     ]],
     resize_keyboard = True,
@@ -527,7 +527,7 @@ async def settings_language_page_handler (message: Message, state: FSMContext):
 
         )
 
-    elif message.text == texts['from_user']['cancel']:
+    elif message.text == texts['from_user']['go_back']:
 
         await state.set_state (Form.page_settings)
 
