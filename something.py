@@ -32,9 +32,9 @@ texts_russian = {
 
         'choose_a_language': '🌐 Выберите язык:',
 
-        'russian': 'Русский',
-        'english': 'Английский',
-        'chinese': 'Китайский',
+        'russian': '🇷🇺 Русский',
+        'english': '🇬🇧 Английский',
+        'chinese': '🇨🇳 Китайский',
 
         'chosen_language_russian': '🇷🇺 Выбран язык: Русский.',
         'chosen_language_english': '🇬🇧 Выбран язык: Английский.',
@@ -528,7 +528,8 @@ keyboard_markup_settings = types.InlineKeyboardMarkup (
     ],
     [
         types.InlineKeyboardButton (text = texts['from_user']['go_home'],callback_data = texts['from_user']['go_home'])
-    ]]
+    ]],
+    keyboard = []
     # resize_keyboard = True,
     # input_field_placeholder = texts['from_bot']['settings_choose_a_button']
 
@@ -539,7 +540,8 @@ inline_keyboard_markup_about = types.InlineKeyboardMarkup (
 
     inline_keyboard = [[
         types.InlineKeyboardButton (text = texts['from_bot']['our_channel'], url = 'https://t.me/li_ta_mi')
-    ]]
+    ]],
+    keyboard = []
 
 )
 
@@ -554,7 +556,8 @@ keyboard_markup_settings_language = types.InlineKeyboardMarkup (
     [
         types.InlineKeyboardButton (text = texts['from_user']['go_back'], callback_data = texts['from_user']['go_back']),
         types.InlineKeyboardButton (text = texts['from_user']['go_home'], callback_data = texts['from_user']['go_home'])
-    ]]
+    ]],
+    keyboard = []
     # resize_keyboard = True,
     # input_field_placeholder = texts['from_bot']['settings_choose_a_button']
 
