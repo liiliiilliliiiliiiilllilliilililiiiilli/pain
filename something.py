@@ -510,12 +510,12 @@ bot_menu = [
 ]
 
 
-keyboard_markup_main = types.InlineKeyboardMarkup (
+keyboard_markup_main = types.KeyboardMarkup (
 
-    inline_keyboard = [[
-        types.InlineKeyboardButton (text = texts['from_user']['help_me_please'])
+    keyboard = [[
+        types.KeyboardButton (text = texts['from_user']['help_me_please'])
     ]],
-    # resize_keyboard = True
+    resize_keyboard = True
 
 )
 
@@ -523,11 +523,11 @@ keyboard_markup_main = types.InlineKeyboardMarkup (
 keyboard_markup_settings = types.InlineKeyboardMarkup (
 
     inline_keyboard = [[
-        types.InlineKeyboardButton (text = texts['from_user']['choose_bot_language'])
+        types.InlineKeyboardButton (text = texts['from_user']['choose_bot_language'], callback_data = texts['from_user']['choose_bot_language'])
     ],
     [
-        types.InlineKeyboardButton (text = texts['from_user']['go_home'])
-    ]],
+        types.InlineKeyboardButton (text = texts['from_user']['go_home'],callback_data = texts['from_user']['go_home'])
+    ]]
     # resize_keyboard = True,
     # input_field_placeholder = texts['from_bot']['settings_choose_a_button']
 
@@ -546,14 +546,14 @@ inline_keyboard_markup_about = types.InlineKeyboardMarkup (
 keyboard_markup_settings_language = types.InlineKeyboardMarkup (
 
     inline_keyboard = [[
-        types.InlineKeyboardButton (text = texts['from_bot']['russian']),
-        types.InlineKeyboardButton (text = texts['from_bot']['english']),
-        types.InlineKeyboardButton (text = texts['from_bot']['chinese'])
+        types.InlineKeyboardButton (text = texts['from_bot']['russian'], callback_data = texts['from_bot']['russian']),
+        types.InlineKeyboardButton (text = texts['from_bot']['english'], callback_data = texts['from_bot']['english']),
+        types.InlineKeyboardButton (text = texts['from_bot']['chinese'], callback_data = texts['from_bot']['chinese'])
     ],
     [
-        types.InlineKeyboardButton (text = texts['from_user']['go_back']),
-        types.InlineKeyboardButton (text = texts['from_user']['go_home'])
-    ]],
+        types.InlineKeyboardButton (text = texts['from_user']['go_back'], callback_data = texts['from_user']['go_back']),
+        types.InlineKeyboardButton (text = texts['from_user']['go_home'], callback_data = texts['from_user']['go_home'])
+    ]]
     # resize_keyboard = True,
     # input_field_placeholder = texts['from_bot']['settings_choose_a_button']
 
@@ -565,6 +565,8 @@ keyboard_markup_settings_language = types.InlineKeyboardMarkup (
 bot = Bot (token = bot_token, default = DefaultBotProperties (parse_mode = ParseMode.HTML))
 
 dp = Dispatcher ()
+
+
 
 
 @dp.message (Command ('start'))
@@ -607,6 +609,40 @@ async def command_settings (message: Message, state: FSMContext):
     )
 
 
+
+
+@db.callback_query ()
+async def settings_outing (call: CallbackQuery):
+
+    if call.message.text == texts['from_user']['choose_bot_language']:
+
+        await state.set_state (Form.page_settings_languages)
+
+        await call.message.answer (
+
+            texts['from_bot']['choose_a_language'],
+            reply_markup = keyboard_markup_settings_language
+
+        )
+
+    elif call.message.text == texts['from_user']['go_home']:
+
+        await command_start (call.message, state)
+
+    elif call.message.text == texts['from_user']['go_back']:
+
+        await state.set_state (Form.page_settings)
+
+        await message.answer (
+
+            texts['from_bot']['settings'],
+            reply_markup = keyboard_markup_settings
+
+        )
+
+
+
+
 @dp.message (Form.page_main)
 async def got_message (message: Message, state: FSMContext):
 
@@ -640,22 +676,7 @@ async def got_message (message: Message, state: FSMContext):
 @dp.message (Form.page_settings)
 async def settings_page_handler (message: Message, state: FSMContext):
 
-    if message.text == texts['from_user']['choose_bot_language']:
-
-        await state.set_state (Form.page_settings_languages)
-
-        await message.answer (
-
-            texts['from_bot']['choose_a_language'],
-            reply_markup = keyboard_markup_settings_language
-
-        )
-
-    elif message.text == texts['from_user']['go_home']:
-
-        await command_start (message, state)
-
-    elif (message.text != '/start' and message.text != '/about' and message.text != '/settings'):
+    if (message.text != '/start' and message.text != '/about' and message.text != '/settings'):
 
         await message.answer (texts['from_bot']['i_could_try_to_help_you_if_you_ask'])
 
@@ -707,21 +728,6 @@ async def settings_language_page_handler (message: Message, state: FSMContext):
             reply_markup = keyboard_markup_settings
 
         )
-
-    elif message.text == texts['from_user']['go_back']:
-
-        await state.set_state (Form.page_settings)
-
-        await message.answer (
-
-            texts['from_bot']['settings'],
-            reply_markup = keyboard_markup_settings
-
-        )
-
-    elif message.text == texts['from_user']['go_home']:
-
-        await command_start (message, state)
 
     elif (message.text != '/start' and message.text != '/about' and message.text != '/settings'):
 
