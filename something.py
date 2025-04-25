@@ -612,7 +612,7 @@ async def command_settings (message: Message, state: FSMContext):
 
 
 
-@db.callback_query ()
+@dp.callback_query ()
 async def settings_outing (call: CallbackQuery):
 
     if call.message.text == texts['from_user']['choose_bot_language']:
