@@ -510,23 +510,23 @@ bot_menu = [
 ]
 
 
-keyboard_markup_main = types.ReplyKeyboardMarkup (
+keyboard_markup_main = types.InlineKeyboardMarkup (
 
     keyboard = [[
-        types.KeyboardButton (text = texts['from_user']['help_me_please'])
+        types.InlineKeyboardButton (text = texts['from_user']['help_me_please'])
     ]],
     resize_keyboard = True
 
 )
 
 
-keyboard_markup_settings = types.ReplyKeyboardMarkup (
+keyboard_markup_settings = types.InlineKeyboardMarkup (
 
     keyboard = [[
-        types.KeyboardButton (text = texts['from_user']['choose_bot_language'])
+        types.InlineButton (text = texts['from_user']['choose_bot_language'])
     ],
     [
-        types.KeyboardButton (text = texts['from_user']['go_home'])
+        types.InlineButton (text = texts['from_user']['go_home'])
     ]],
     resize_keyboard = True,
     # input_field_placeholder = texts['from_bot']['settings_choose_a_button']
@@ -543,16 +543,16 @@ inline_keyboard_markup_about = types.InlineKeyboardMarkup (
 )
 
 
-keyboard_markup_settings_language = types.ReplyKeyboardMarkup (
+keyboard_markup_settings_language = types.InlineKeyboardMarkup (
 
     keyboard = [[
-        types.KeyboardButton (text = texts['from_bot']['russian']),
-        types.KeyboardButton (text = texts['from_bot']['english']),
-        types.KeyboardButton (text = texts['from_bot']['chinese'])
+        types.InlineKeyboardButton (text = texts['from_bot']['russian']),
+        types.InlineKeyboardButton (text = texts['from_bot']['english']),
+        types.InlineKeyboardButton (text = texts['from_bot']['chinese'])
     ],
     [
-        types.KeyboardButton (text = texts['from_user']['go_back']),
-        types.KeyboardButton (text = texts['from_user']['go_home'])
+        types.InlineKeyboardButton (text = texts['from_user']['go_back']),
+        types.InlineKeyboardButton (text = texts['from_user']['go_home'])
     ]],
     resize_keyboard = True,
     # input_field_placeholder = texts['from_bot']['settings_choose_a_button']
