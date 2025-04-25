@@ -510,7 +510,7 @@ bot_menu = [
 ]
 
 
-keyboard_markup_main = types.KeyboardMarkup (
+keyboard_markup_main = types.ReplyKeyboardMarkup (
 
     keyboard = [[
         types.KeyboardButton (text = texts['from_user']['help_me_please'])
