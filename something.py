@@ -631,7 +631,7 @@ async def got_message (message: Message, state: FSMContext):
 
         )
 
-    else:
+    elif (message.text != '/start' and message.text != '/about' and message.text != '/settings'):
 
         await state.set_state (Form.page_main)
         await message.answer (texts['from_bot']['i_could_try_to_help_you_if_you_ask'])
@@ -655,7 +655,7 @@ async def settings_page_handler (message: Message, state: FSMContext):
 
         await command_start (message, state)
 
-    else:
+    elif (message.text != '/start' and message.text != '/about' and message.text != '/settings'):
 
         await message.answer (texts['from_bot']['i_could_try_to_help_you_if_you_ask'])
 
@@ -723,7 +723,7 @@ async def settings_language_page_handler (message: Message, state: FSMContext):
 
         await command_start (message, state)
 
-    else:
+    elif (message.text != '/start' and message.text != '/about' and message.text != '/settings'):
 
         await message.answer (texts['from_bot']['i_could_try_to_help_you_if_you_ask'])
 
