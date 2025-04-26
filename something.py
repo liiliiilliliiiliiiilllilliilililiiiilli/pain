@@ -606,7 +606,7 @@ async def command_start (message: Message, state: FSMContext):
 @dp.message (Command ('about'))
 async def command_about (message: Message, state: FSMContext):
 
-    await state.set_state (Form.page_main)
+    # await state.set_state (Form.page_main)
 
     await message.answer (
 
@@ -627,7 +627,7 @@ async def command_settings (message: Message, state: FSMContext):
     #         message.message_id - 1, message.message_id - 2
     #     ])
 
-    # await state.set_state (Form.page_settings)
+    await state.set_state (Form.page_settings)
 
     await message.answer (
 
