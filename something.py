@@ -15,7 +15,12 @@ from aiogram.types import Message
 from aiogram.types import CallbackQuery
 
 
-db = redis.Redis (host = 'localhost', port = 6379, db = 0, decode_responses = True)
+db = redis.Redis (
+    host = 'localhost',
+    port = 6379,
+    db = 0,
+    decode_responses = True
+)
 
 
 bot_token = '8025972966:AAHaUFQxaH-7Uu1XHQGhp5t23WpWk63Cps0'
