@@ -508,8 +508,6 @@ async def setLanguageUser (user_id, language, message):
 
     user_language = language
 
-    # await bot.set_my_commands (await bot_menu (message))
-
 
 
 
@@ -562,8 +560,7 @@ async def keyboard_markup_settings (message):
         [
             types.KeyboardButton (text = await texts (lambda texts: texts['from_user']['go_home'], message.from_user.id))]
         ],
-        resize_keyboard = True,
-        # input_field_placeholder = texts['from_bot']['settings_choose_a_button']
+        resize_keyboard = True
 
 )
 
@@ -593,8 +590,7 @@ async def keyboard_markup_settings_language (message):
             types.KeyboardButton (text = await texts (lambda texts: texts['from_user']['go_back'], message.from_user.id)),
             types.KeyboardButton (text = await texts (lambda texts: texts['from_user']['go_home'], message.from_user.id))]
         ],
-        resize_keyboard = True,
-        # input_field_placeholder = texts['from_bot']['settings_choose_a_button']
+        resize_keyboard = True
 
 )
 
@@ -613,7 +609,6 @@ async def command_start (message: Message, state: FSMContext):
 
     await state.set_state (Form.page_main)
 
-    # await bot.set_my_commands (await bot_menu (message))
     await message.answer (
 
         await texts (lambda texts: texts['from_bot']['greeting_init' if message.text == '/start' else 'greeting_regular' if message.text in [texts['from_user']['go_home'], texts['from_user']['go_back']] else 'i_could_try_to_help_you_if_you_ask'], message.from_user.id),
@@ -624,8 +619,6 @@ async def command_start (message: Message, state: FSMContext):
 
 @dp.message (Command ('about'))
 async def command_about (message: Message, state: FSMContext):
-
-    # await state.set_state (Form.page_main)
 
     await message.answer (
 
@@ -646,14 +639,6 @@ async def command_settings (message: Message, state: FSMContext):
         reply_markup = await keyboard_markup_settings (message)
 
     )
-
-
-
-
-# await bot.delete_messages (chat_id = call.message.chat.id, message_ids = [
-#     call.message.message_id,
-#     call.message.message_id - 1
-# ])
 
 
 
@@ -782,7 +767,7 @@ async def settings_language_page_handler (message: Message, state: FSMContext):
 
 async def main ():
 
-    await bot.set_my_commands (await bot_menu ())
+    # await bot.set_my_commands (await bot_menu ())
 
     await dp.start_polling (bot)
 
