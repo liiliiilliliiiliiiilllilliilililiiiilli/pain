@@ -645,7 +645,7 @@ async def got_message (message: Message, state: FSMContext):
     if message.text == await texts (lambda texts: texts['from_user']['help_me_please'], message.from_user.id):
 
         await state.set_state (Form.page_main)
-        await message.answer (something (message))
+        await message.answer (await something (message))
 
     elif message.text == await texts (lambda texts: texts['from_user']['commands']['about_this_bot'], message.from_user.id):
 
