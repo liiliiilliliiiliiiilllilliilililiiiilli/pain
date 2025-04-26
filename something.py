@@ -494,7 +494,7 @@ async def texts (get_texts, user_id):
 
 
 
-async def something ():
+async def something (message):
 
     return random.choice (await texts (lambda texts: texts['from_bot']['help_normal_letters'], message.from_user.id))
 
@@ -508,7 +508,7 @@ class Form (StatesGroup):
     page_settings_languages = State ()
 
 
-async def bot_menu ():
+async def bot_menu (message):
     
     return [
 
@@ -522,7 +522,7 @@ async def bot_menu ():
     ]
 
 
-async def keyboard_markup_main ():
+async def keyboard_markup_main (message):
     
     return types.ReplyKeyboardMarkup (
 
@@ -534,7 +534,7 @@ async def keyboard_markup_main ():
 )
 
 
-async def keyboard_markup_settings ():
+async def keyboard_markup_settings (message):
     
     return types.ReplyKeyboardMarkup (
 
@@ -549,7 +549,7 @@ async def keyboard_markup_settings ():
 )
 
 
-async def inline_keyboard_markup_about ():
+async def inline_keyboard_markup_about (message):
     
     return types.InlineKeyboardMarkup (
 
@@ -562,7 +562,7 @@ async def inline_keyboard_markup_about ():
 )
 
 
-async def keyboard_markup_settings_language ():
+async def keyboard_markup_settings_language (message):
     
     return types.ReplyKeyboardMarkup (
 
@@ -594,11 +594,11 @@ async def command_start (message: Message, state: FSMContext):
 
     await state.set_state (Form.page_main)
 
-    await bot.set_my_commands (await bot_menu ())
+    await bot.set_my_commands (await bot_menu (message))
     await message.answer (
 
         await texts (lambda texts: texts['from_bot']['greeting_first' if message.text == '/start' else 'greeting_regular' if message.text in [texts['from_user']['go_home'], texts['from_user']['go_back']] else 'i_could_try_to_help_you_if_you_ask'], message.from_user.id),
-        reply_markup = await keyboard_markup_main ()
+        reply_markup = await keyboard_markup_main (message)
 
     )
 
@@ -611,7 +611,7 @@ async def command_about (message: Message, state: FSMContext):
     await message.answer (
         
         await texts (lambda texts: texts['from_bot']['what_is_this_bot_about'], message.from_user.id),
-        reply_markup = await inline_keyboard_markup_about ()
+        reply_markup = await inline_keyboard_markup_about (message)
         
     )
 
@@ -624,7 +624,7 @@ async def command_settings (message: Message, state: FSMContext):
     await message.answer (
 
         await texts (lambda texts: texts['from_bot']['settings'], message.from_user.id),
-        reply_markup = await keyboard_markup_settings ()
+        reply_markup = await keyboard_markup_settings (message)
 
     )
 
@@ -645,7 +645,7 @@ async def got_message (message: Message, state: FSMContext):
     if message.text == await texts (lambda texts: texts['from_user']['help_me_please'], message.from_user.id):
 
         await state.set_state (Form.page_main)
-        await message.answer (something ())
+        await message.answer (something (message))
 
     elif message.text == await texts (lambda texts: texts['from_user']['commands']['about_this_bot'], message.from_user.id):
 
@@ -659,7 +659,7 @@ async def got_message (message: Message, state: FSMContext):
         await message.answer (
 
             await texts (lambda texts: texts['from_bot']['settings'], message.from_user.id),
-            reply_markup = await keyboard_markup_settings ()
+            reply_markup = await keyboard_markup_settings (message)
 
         )
 
@@ -678,7 +678,7 @@ async def settings_page_handler (message: Message, state: FSMContext):
         await message.answer (
 
             await texts (lambda texts: texts['from_bot']['choose_a_language'], message.from_user.id),
-            reply_markup = await keyboard_markup_settings_language ()
+            reply_markup = await keyboard_markup_settings_language (message)
 
         )
 
@@ -706,7 +706,7 @@ async def settings_language_page_handler (message: Message, state: FSMContext):
         await message.answer (
 
             await texts (lambda texts: texts['from_bot']['settings'], message.from_user.id),
-            reply_markup = await keyboard_markup_settings ()
+            reply_markup = await keyboard_markup_settings (message)
 
         )
 
@@ -721,7 +721,7 @@ async def settings_language_page_handler (message: Message, state: FSMContext):
         await message.answer (
 
             texts['from_bot']['settings'],
-            reply_markup = await keyboard_markup_settings ()
+            reply_markup = await keyboard_markup_settings (message)
         
         )
 
@@ -736,7 +736,7 @@ async def settings_language_page_handler (message: Message, state: FSMContext):
         await message.answer (
 
             await texts (lambda texts: texts['from_bot']['settings'], message.from_user.id),
-            reply_markup = await keyboard_markup_settings ()
+            reply_markup = await keyboard_markup_settings (message)
 
         )
 
@@ -751,7 +751,7 @@ async def settings_language_page_handler (message: Message, state: FSMContext):
         await message.answer (
 
             await texts (lambda texts: texts['from_bot']['settings'], message.from_user.id),
-            reply_markup = await keyboard_markup_settings ()
+            reply_markup = await keyboard_markup_settings (message)
 
         )
 
@@ -765,7 +765,7 @@ async def settings_language_page_handler (message: Message, state: FSMContext):
 
 async def main ():
 
-    await bot.set_my_commands (await bot_menu ())
+    # await bot.set_my_commands (await bot_menu ())
 
     await dp.start_polling (bot)
 
