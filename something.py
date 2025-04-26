@@ -489,7 +489,7 @@ texts_chinese = {
 
 async def texts (get_texts, user_id):
     
-    return await get_texts (texts_russian)
+    return get_texts (texts_russian)
 
 
 
