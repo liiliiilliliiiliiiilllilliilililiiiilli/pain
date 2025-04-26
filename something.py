@@ -527,13 +527,13 @@ def bot_menu ():
 
         types.BotCommand (
             command = '/start',
-            description = 'Старт   🚀'),
+            description = 'Старт  🛸'),
         types.BotCommand (
             command = '/about',
-            description = 'О боте   🔍'),
+            description = 'О боте  🔍'),
         types.BotCommand (
             command = '/settings',
-            description = 'Настройки   ⚙️')
+            description = 'Настройки  ⚙️')
 
     ]
 
