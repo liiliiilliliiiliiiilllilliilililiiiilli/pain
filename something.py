@@ -195,7 +195,7 @@ texts_english = {
         'english': '🇬🇧 English',
         'chinese': '🇨🇳 中国',
 
-        'chosen_language_english': '🇬Chosen language: 🇬🇧 English.',
+        'chosen_language_english': 'Chosen language:  🇬🇧 English.',
 
         'our_channel': 'Our channel',
 
