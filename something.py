@@ -557,7 +557,8 @@ async def inline_keyboard_markup_about (message):
             types.InlineKeyboardButton (
                 text = await texts (lambda texts: texts['from_bot']['our_channel'], message.from_user.id),
                 url = 'https://t.me/li_ta_mi')]
-        ]
+        ],
+        keyboard = []
 
 )
 
