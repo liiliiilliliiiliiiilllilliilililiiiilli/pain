@@ -615,12 +615,6 @@ async def command_about (message: Message, state: FSMContext):
 
     )
 
-    await bot.edit_message_reply_markup (
-        chat_id = message.chat.id,
-        message_id = message.message_id - 1,
-        reply_markup = types.ReplyKeyboardRemove ()
-    )
-
 
 @dp.message (Command ('settings'))
 async def command_settings (message: Message, state: FSMContext):
