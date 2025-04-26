@@ -42,7 +42,7 @@ texts_russian = {
         'english': '🇬🇧  English',
         'chinese': '🇨🇳  中国',
 
-        'chosen_language_russian': 'Выбран язык:  🇷🇺 Русский.',
+        'chosen_language_russian': 'Выбран язык:  🇷🇺  Русский.',
 
         'our_channel': 'Наш канал',
 
@@ -172,7 +172,7 @@ texts_russian = {
         },
 
         'help_me_please': 'Помогите',
-        'choose_bot_language': '🌐  Язык бота (Русский)',
+        'choose_bot_language': '🌐  Язык бота  (🇷🇺 Русский)',
         'go_back': '⬅️  Назад',
         'go_home': '🏠  На главную'
 
@@ -195,11 +195,11 @@ texts_english = {
         'english': '🇬🇧  English',
         'chinese': '🇨🇳  中国',
 
-        'chosen_language_english': 'Chosen language:  🇬🇧 English.',
+        'chosen_language_english': 'Chosen language:  🇬🇧  English.',
 
         'our_channel': 'Our channel',
 
-        'settings': '⚙️ Bot settings:',
+        'settings': '⚙️  Bot settings:',
 
         'i_could_try_to_help_you_if_you_ask': 'I\'m always here. Just ask for help and I will answer.',
 
@@ -325,7 +325,7 @@ texts_english = {
         },
 
         'help_me_please': 'Help',
-        'choose_bot_language': '🌐  Bot language (English)',
+        'choose_bot_language': '🌐  Bot language  (🇬🇧 English)',
         'go_back': '⬅️  Go back',
         'go_home': '🏠  Homepage'
 
@@ -348,7 +348,7 @@ texts_chinese = {
         'english': '🇬🇧  English',
         'chinese': '🇨🇳  中国',
 
-        'chosen_language_chinese': '所选语言： 🇨🇳 中文。',
+        'chosen_language_chinese': '所选语言： 🇨🇳  中文。',
 
         'our_channel': '我们的频道',
 
@@ -458,7 +458,7 @@ texts_chinese = {
         },
 
         'help_me_please': '帮助',
-        'choose_bot_language': '🌐  机器人语言（中文)',
+        'choose_bot_language': '🌐  机器人语言  (🇨🇳 中文)',
         'go_back': '⬅️  回去',
         'go_home': '🏠  前往主页'
 
