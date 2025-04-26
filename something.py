@@ -351,7 +351,7 @@ texts_chinese = {
         'english': '🇬🇧  English',
         'chinese': '🇨🇳  中国',
 
-        'chosen_language_chinese': '所选语言： 🇨🇳 中文',
+        'chosen_language_chinese': '所选语言: 🇨🇳 中文',
 
         'our_channel': '我们的频道',
 
