@@ -203,6 +203,8 @@ texts_english = {
         'what_is_this_bot_about': 'I try my best to at least support those who are hurting. Write and I will answer.',
         'choose_a_language': 'Choose a language',
 
+        'settings': 'chosen_language_english',
+
         'russian': 'Russian',
         'english': 'English',
         'chinese': 'Chinese',
