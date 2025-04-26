@@ -36,17 +36,17 @@ texts_russian = {
         'greeting_regular': 'Если тебе очень плохо, подай сигнал, и я тебя поддержу. Я постараюсь сделать хоть что-то, чтобы помочь, но не знаю, может ли это что-либо изменить.',
         'what_is_this_bot_about': 'Я стараюсь, как могу, чтобы хоть в какой-то степени поддержать тех, кому больно. Напиши, и я отвечу.',
 
-        'choose_a_language': '🌐 Выберите язык:',
+        'choose_a_language': '🌐  Выберите язык:',
 
-        'russian': '🇷🇺 Русский',
-        'english': '🇬🇧 English',
-        'chinese': '🇨🇳 中国',
+        'russian': '🇷🇺  Русский',
+        'english': '🇬🇧  English',
+        'chinese': '🇨🇳  中国',
 
         'chosen_language_russian': 'Выбран язык:  🇷🇺 Русский.',
 
         'our_channel': 'Наш канал',
 
-        'settings': '⚙️ Настройки бота:',
+        'settings': '⚙️  Настройки бота:',
 
         'i_could_try_to_help_you_if_you_ask': 'Я всегда здесь. Просто попроси помощи, и я отвечу.',
 
@@ -172,9 +172,9 @@ texts_russian = {
         },
 
         'help_me_please': 'Помогите',
-        'choose_bot_language': '🌐 Язык бота (Русский)',
-        'go_back': '⬅️ Назад',
-        'go_home': '🏠 На главную'
+        'choose_bot_language': '🌐  Язык бота (Русский)',
+        'go_back': '⬅️  Назад',
+        'go_home': '🏠  На главную'
 
     }
 
@@ -189,11 +189,11 @@ texts_english = {
         'greeting_regular': 'If you\'re feeling really bad, you can give me a signal and I\'ll support you. I\'ll try to do at least something, but I don\'t know how much it can change anything.',
         'what_is_this_bot_about': 'I try my best to at least support those who are hurting. Write and I will answer.',
 
-        'choose_a_language': '🌐 Choose a language:',
+        'choose_a_language': '🌐  Choose a language:',
 
-        'russian': '🇷🇺 Русский',
-        'english': '🇬🇧 English',
-        'chinese': '🇨🇳 中国',
+        'russian': '🇷🇺  Русский',
+        'english': '🇬🇧  English',
+        'chinese': '🇨🇳  中国',
 
         'chosen_language_english': 'Chosen language:  🇬🇧 English.',
 
@@ -325,9 +325,9 @@ texts_english = {
         },
 
         'help_me_please': 'Help',
-        'choose_bot_language': '🌐 Bot language (English)',
-        'go_back': '⬅️ Go back',
-        'go_home': '🏠 Homepage'
+        'choose_bot_language': '🌐  Bot language (English)',
+        'go_back': '⬅️  Go back',
+        'go_home': '🏠  Homepage'
 
     }
 
@@ -342,17 +342,17 @@ texts_chinese = {
         'greeting_regular': '如果价感觉真的很梧糕，你可以给我一个信号，我会支特你。我会尝试做至少一些事情，但我不知道这能改变多少事情。，',
         'what_is_this_bot_about': '我尽力去支持那些正在受伤的人。写下来，我会回复。',
 
-        'choose_a_language': '🌐 选择语言:',
+        'choose_a_language': '🌐  选择语言:',
 
-        'russian': '🇷🇺 Русский',
-        'english': '🇬🇧 English',
-        'chinese': '🇨🇳 中国',
+        'russian': '🇷🇺  Русский',
+        'english': '🇬🇧  English',
+        'chinese': '🇨🇳  中国',
 
         'chosen_language_chinese': '所选语言： 🇨🇳 中文。',
 
         'our_channel': '我们的频道',
 
-        'settings': '⚙️ 设置:',
+        'settings': '⚙️  设置:',
 
         'i_could_try_to_help_you_if_you_ask': '我一直在这里。只要你寻求帮助，我就会解答。',
 
@@ -458,9 +458,9 @@ texts_chinese = {
         },
 
         'help_me_please': '帮助',
-        'choose_bot_language': '🌐 机器人语言（中文)',
-        'go_back': '⬅️ 回去',
-        'go_home': '🏠 前往主页'
+        'choose_bot_language': '🌐  机器人语言（中文)',
+        'go_back': '⬅️  回去',
+        'go_home': '🏠  前往主页'
 
     }
 
