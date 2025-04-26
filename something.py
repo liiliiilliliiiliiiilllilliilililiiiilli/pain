@@ -492,7 +492,7 @@ async def texts (get_texts, user_id):
     
     user_language = await getLanguageUser (user_id)
 
-    return get_texts (texts_russian if user_language == russian else texts_english if user_language == 'english' else texts_chinese if user_language == 'chinese' else 'chinese')
+    return get_texts (texts_russian if user_language == 'russian' else texts_english if user_language == 'english' else texts_chinese if user_language == 'chinese' else 'chinese')
 
 
 async def setLanguageUser (user_id, language):
