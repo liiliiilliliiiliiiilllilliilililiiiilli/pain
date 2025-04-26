@@ -15,7 +15,7 @@ from aiogram.types import Message
 from aiogram.types import CallbackQuery
 
 
-db = redis.Redis (host = 'localhost', port = 6379, db = 0)
+db = redis.Redis (host = 'localhost', port = 6379, db = 0, decode_responses = True)
 
 
 bot_token = '8025972966:AAHaUFQxaH-7Uu1XHQGhp5t23WpWk63Cps0'
@@ -497,7 +497,7 @@ async def texts (get_texts, user):
     
     user_language = await getLanguageUser (user.id, user.language_code)
 
-    return get_texts (texts_russian if user_language == 'russian' else texts_english if user_language == 'english' else texts_chinese if user_language == 'chinese' else texts_chinese)
+    return get_texts (texts_russian if user_language == 'russian' else texts_english if user_language == 'english' else texts_chinese if user_language == 'chinese' else texts_russian)
 
 
 async def setLanguageUser (user_id, language):
