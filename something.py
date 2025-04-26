@@ -38,16 +38,10 @@ texts_russian = {
         'chinese': '🇨🇳 Китайский',
 
         'chosen_language_russian': '🇷🇺 Выбран язык: Русский.',
-        'chosen_language_english': '🇬🇧 Выбран язык: Английский.',
-        'chosen_language_chinese': '🇨🇳 Выбран язык: Китайский.',
 
         'our_channel': 'Наш канал',
 
-        'i_could_try_to_help_you': 'Поддержу',
-
         'settings': '⚙️ Настройки бота:',
-
-        'settings_choose_a_button': 'Выберите пункт',
 
         'i_could_try_to_help_you_if_you_ask': 'Я всегда здесь. Просто попроси помощи, и я отвечу.',
 
@@ -139,7 +133,7 @@ texts_russian = {
 
         ],
 
-        'help_low_letters': [
+        'help_small_letters': [
 
             'у тебя все получится',
             'твоя боль оправдана',
@@ -173,13 +167,8 @@ texts_russian = {
         },
 
         'help_me_please': 'Помогите',
-
         'choose_bot_language': 'Язык интерфейса (Русский)',
-
         'go_back': 'Назад',
-
-        'cancel': 'Отмена',
-
         'go_home': 'На главную'
 
     },
@@ -198,21 +187,21 @@ texts_english = {
 
     'from_bot': {
 
-        'greeting': 'Hi. If you\'re feeling really bad, you can give me a signal and I\'ll support you. I\'ll try to do at least something, but I don\'t know how much it can change anything.',
+        'greeting_first': 'Hello... If you\'re feeling really bad, you can give me a signal and I\'ll support you. I\'ll try to do at least something, but I don\'t know how much it can change anything.',
         'i_could_try_to_help_you': 'I\'ll try to support you if you\'re in pain. Just ask.',
         'what_is_this_bot_about': 'I try my best to at least support those who are hurting. Write and I will answer.',
-        'choose_a_language': 'Choose a language',
 
-        'settings': 'chosen_language_english',
+        'choose_a_language': '🌐 Choose a language:',
 
         'russian': 'Russian',
         'english': 'English',
         'chinese': 'Chinese',
 
+        'chosen_language_english': '🇬🇧 Chosen language: English.',
+
         'our_channel': 'Our channel',
 
-        'i_could_try_to_help_you': 'I will support',
-        'settings_choose_a_button': 'Choose button',
+        'settings': '⚙️ Bot settings',
 
         'i_could_try_to_help_you_if_you_ask': 'I\'m always here. Just ask for help and I will answer.',
 
@@ -304,7 +293,7 @@ texts_english = {
 
         ],
 
-        'help_low_letters': [
+        'help_small_letters': [
             
             'you can do it',
             'your pain is justified',
@@ -339,7 +328,8 @@ texts_english = {
 
         'help_me_please': 'help',
         'choose_bot_language': 'Choose bot language',
-        'go_back': 'Go back'
+        'go_back': 'Go back',
+        'go_home': 'Homepage'
 
     },
 
@@ -360,17 +350,18 @@ texts_chinese = {
         'i_could_try_to_help_you': '如果你感到疼痛，我会尽力支持你。尽管说。',
         'what_is_this_bot_about': '我尽力去支持那些正在受伤的人。写下来，我会回复。',
 
-        'i_could_try_to_help_you': '我会支持',
-
         'choose_a_language': '选择语言',
 
         'russian': '俄语',
         'english': '英语',
         'chinese': '中国',
 
+        'chosen_language_chinese': '🇨🇳 所选语言：中文',
+
         'our_channel': '我们的频道',
 
-        'settings_choose_a_button': '选择按钮',
+        'settings': '设置',
+
         'i_could_try_to_help_you_if_you_ask': '我一直在这里。只要你寻求帮助，我就会解答。',
 
         'help_normal_letters': [
@@ -459,7 +450,9 @@ texts_chinese = {
             '即使你感觉自己像一个破碎的人，请记住：碎片可以变成马赛克。你仍然会用看似无用的东西创造出美丽的东西。',
             '不要害怕你的眼泪——它滋润心灵的土壤。之后成长起来的东西将会更加强大和聪明。我为你允许自己去感受而感到骄傲。'
 
-        ]
+        ],
+
+        'help_small_letters': []
 
     },
 
@@ -474,7 +467,8 @@ texts_chinese = {
 
         'help_me_please': '帮助',
         'choose_bot_language': '选择机器人语言',
-        'go_back': '回去'
+        'go_back': '回去',
+        'go_home': '前往主页'
 
     },
 
@@ -489,9 +483,16 @@ texts_chinese = {
 
 
 
+async def getLanguageUser (user_id):
+
+    return 'russian'
+
+
 async def texts (get_texts, user_id):
     
-    return get_texts (texts_russian)
+    user_language = await getLanguageUser (user_id)
+
+    return get_texts (texts_russian if user_language == russian else texts_english if user_language == 'english' else texts_chinese if user_language == 'chinese' else 'chinese')
 
 
 async def setLanguageUser (user_id, language):
