@@ -619,15 +619,15 @@ async def command_about (message: Message, state: FSMContext):
 @dp.message (Command ('settings'))
 async def command_settings (message: Message, state: FSMContext):
 
-    curr_state = await state.get_state ()
+    # curr_state = await state.get_state ()
 
-    if curr_state != 'page_main':
+    # if curr_state != 'page_main':
+    #
+    #     await bot.delete_messages (chat_id = message.chat.id, message_ids = [
+    #         message.message_id - 1, message.message_id - 2
+    #     ])
 
-        await bot.delete_messages (chat_id = message.chat.id, message_ids = [
-            message.message_id - 1, message.message_id - 2
-        ])
-
-    await state.set_state (Form.page_settings)
+    # await state.set_state (Form.page_settings)
 
     await message.answer (
 
