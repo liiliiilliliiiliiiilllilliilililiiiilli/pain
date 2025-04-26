@@ -490,8 +490,6 @@ user_language = 'english'
 
 async def getLanguageUser (user_id):
 
-    global user_language
-
     return user_language
 
 
@@ -503,8 +501,6 @@ async def texts (get_texts, user_id):
 
 
 async def setLanguageUser (user_id, language, message):
-
-    global user_language
 
     user_language = language
 
