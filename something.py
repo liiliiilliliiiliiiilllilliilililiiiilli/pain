@@ -35,7 +35,7 @@ texts_russian = {
         'greeting_init': 'Привет... Если тебе очень плохо, подай сигнал, и я тебя поддержу. Я постараюсь сделать хоть что-то, чтобы помочь, но не знаю, может ли это что-либо изменить.',
         'greeting_regular': 'Если тебе очень плохо, подай сигнал, и я тебя поддержу. Я постараюсь сделать хоть что-то, чтобы помочь, но не знаю, может ли это что-либо изменить.',
         'what_is_this_bot_about_1': 'Автор бота и сам в трудной ситуации. Его окружает плохое - но он не сдается и старается помочь другим. Если у вас есть мечта, цель или желание - не сдавайтесь и идите собственным путем. Вы сможете получить все, чего хотите, если будете продолжать верить в добро и справедливость.',
-        'what_is_this_bot_about_2': 'Если вы не верите в свои силы - я делаю это за вас.',
+        'what_is_this_bot_about_2': 'Если вы не верите в себя - я сделаю это за вас.',
 
         'choose_a_language': '🌐  Выберите язык:',
 
@@ -189,7 +189,7 @@ texts_english = {
         'greeting_init': 'Hello... If you\'re feeling really bad, you can give me a signal and I\'ll support you. I\'ll try to do at least something, but I don\'t know how much it can change anything.',
         'greeting_regular': 'If you\'re feeling really bad, you can give me a signal and I\'ll support you. I\'ll try to do at least something, but I don\'t know how much it can change anything.',
         'what_is_this_bot_about_1': 'The author of the bot is in a difficult situation himself. He is surrounded by bad things - but he does not give up and tries to help others. If you have a dream, a goal or a desire - do not give up and go your own way. You can get everything you want if you continue to believe in goodness and justice.',
-        'what_is_this_bot_about_2': 'If you do not believe in yourself - I do it for you.',
+        'what_is_this_bot_about_2': 'If you don\'t believe in yourself, I\'ll do it for you.',
 
         'choose_a_language': '🌐  Choose a language:',
 
@@ -461,7 +461,7 @@ texts_chinese = {
         },
 
         'help_me_please': '帮助',
-        'choose_bot_language': '🌐  机器人语<言  (🇨🇳 中文)',
+        'choose_bot_language': '🌐  机器人语言  (🇨🇳 中文)',
         'go_back': '⬅️  回去',
         'go_home': '🏠  前往主页'
 
