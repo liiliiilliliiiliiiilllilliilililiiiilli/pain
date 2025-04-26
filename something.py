@@ -507,7 +507,8 @@ async def setLanguageUser (user_id, language, message):
     global user_language
 
     user_language = language
-    await bot.set_my_commands (await bot_menu (message))
+
+    # await bot.set_my_commands (await bot_menu (message))
 
 
 
