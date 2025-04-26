@@ -483,16 +483,16 @@ texts_chinese = {
 
 
 
-language_q = 'russian'
+user_language = 'english'
 
 
 
 
 async def getLanguageUser (user_id):
 
-    global language_q
+    global user_language
 
-    return language_q
+    return user_language
 
 
 async def texts (get_texts, user_id):
@@ -504,9 +504,9 @@ async def texts (get_texts, user_id):
 
 async def setLanguageUser (user_id, language, message):
 
-    global language_q
+    global user_language
 
-    language_q = language
+    user_language = language
     await bot.set_my_commands (await bot_menu (message))
 
 
@@ -532,10 +532,10 @@ async def bot_menu (message):
 
         types.BotCommand (
             command = '/about',
-            description = await texts (lambda texts: texts['menu']['about'], message.from_user.id)),
+            description = texts_russian['menu']['about']),
         types.BotCommand (
             command = '/settings',
-            description = await texts (lambda texts: texts['menu']['settings'], message.from_user.id))
+            description = texts_russian['menu']['settings'])
 
     ]
 
@@ -612,7 +612,7 @@ async def command_start (message: Message, state: FSMContext):
 
     await state.set_state (Form.page_main)
 
-    await bot.set_my_commands (await bot_menu (message))
+    # await bot.set_my_commands (await bot_menu (message))
     await message.answer (
 
         await texts (lambda texts: texts['from_bot']['greeting_init' if message.text == '/start' else 'greeting_regular' if message.text in [texts['from_user']['go_home'], texts['from_user']['go_back']] else 'i_could_try_to_help_you_if_you_ask'], message.from_user.id),
@@ -781,7 +781,7 @@ async def settings_language_page_handler (message: Message, state: FSMContext):
 
 async def main ():
 
-    # await bot.set_my_commands (await bot_menu ())
+    await bot.set_my_commands (await bot_menu ())
 
     await dp.start_polling (bot)
 
