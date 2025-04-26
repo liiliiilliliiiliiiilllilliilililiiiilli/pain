@@ -583,7 +583,7 @@ async def command_start (message: Message, state: FSMContext):
     await bot.set_my_commands (bot_menu)
     await message.answer (
 
-        texts['from_bot']['greeting_first' if message.text == '/start' else 'greeting_regular'],
+        texts['from_bot']['greeting_first' if message.text == '/start' else 'greeting_regular' if message.text in [texts['from_user']['go_home'], texts['from_user']['go_back']] else 'i_could_try_to_help_you_if_you_ask'],
         reply_markup = keyboard_markup_main
 
     )
@@ -674,7 +674,8 @@ async def settings_page_handler (message: Message, state: FSMContext):
 
     elif (message.text != '/start' and message.text != '/about' and message.text != '/settings'):
 
-        await message.answer (texts['from_bot']['i_could_try_to_help_you_if_you_ask'])
+        await command_start (message, state)
+        # await message.answer (texts['from_bot']['i_could_try_to_help_you_if_you_ask'])
 
 
 @dp.message (Form.page_settings_languages)
@@ -742,7 +743,8 @@ async def settings_language_page_handler (message: Message, state: FSMContext):
 
     elif (message.text != '/start' and message.text != '/about' and message.text != '/settings'):
 
-        await message.answer (texts['from_bot']['i_could_try_to_help_you_if_you_ask'])
+        await command_start (message, state)
+        # await message.answer (texts['from_bot']['i_could_try_to_help_you_if_you_ask'])
 
 
 
