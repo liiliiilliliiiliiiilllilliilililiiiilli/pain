@@ -167,7 +167,7 @@ texts_russian = {
         },
 
         'help_me_please': 'Помогите',
-        'choose_bot_language': 'Язык интерфейса (Русский)',
+        'choose_bot_language': 'Язык бота (Русский)',
         'go_back': 'Назад',
         'go_home': 'На главную'
 
@@ -327,7 +327,7 @@ texts_english = {
         },
 
         'help_me_please': 'help',
-        'choose_bot_language': 'Choose bot language',
+        'choose_bot_language': 'Bot language (English)',
         'go_back': 'Go back',
         'go_home': 'Homepage'
 
@@ -466,7 +466,7 @@ texts_chinese = {
         },
 
         'help_me_please': '帮助',
-        'choose_bot_language': '选择机器人语言',
+        'choose_bot_language': '机器人语言（中文)',
         'go_back': '回去',
         'go_home': '前往主页'
 
