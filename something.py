@@ -488,28 +488,28 @@ user_language = 'english'
 
 
 
-async def getLanguageUser (user_id):
+async def getLanguageUser (user_id, lang_code):
 
-    return user_language
+    return r.get (f'{user_id}') if r.exists (f'{user_id}') else 'russian' if lang_code == 'ru' else 'english' if lang_code == 'en' else 'chinese' if lang_code == 'zh' else 'russian'
 
 
-async def texts (get_texts, user_id):
+async def texts (get_texts, user):
     
-    user_language = await getLanguageUser (user_id)
+    user_language = await getLanguageUser (user.id, user.language_code)
 
     return get_texts (texts_russian if user_language == 'russian' else texts_english if user_language == 'english' else texts_chinese if user_language == 'chinese' else texts_chinese)
 
 
-async def setLanguageUser (user_id, language, message):
-
-    user_language = language
+async def setLanguageUser (user_id, language):
+    
+    db.set (f'{user_id}', language)
 
 
 
 
 async def something (message):
 
-    return random.choice (await texts (lambda texts: texts['from_bot']['help_normal_letters'], message.from_user.id))
+    return random.choice (await texts (lambda texts: texts['from_bot']['help_normal_letters'], message.from_user))
 
 
 
@@ -540,7 +540,7 @@ async def keyboard_markup_main (message):
     return types.ReplyKeyboardMarkup (
 
         keyboard = [[
-            types.KeyboardButton (text = await texts (lambda texts: texts['from_user']['help_me_please'], message.from_user.id))]
+            types.KeyboardButton (text = await texts (lambda texts: texts['from_user']['help_me_please'], message.from_user))]
         ],
         resize_keyboard = True
 
@@ -552,9 +552,9 @@ async def keyboard_markup_settings (message):
     return types.ReplyKeyboardMarkup (
 
         keyboard = [[
-            types.KeyboardButton (text = await texts (lambda texts: texts['from_user']['choose_bot_language'], message.from_user.id))],
+            types.KeyboardButton (text = await texts (lambda texts: texts['from_user']['choose_bot_language'], message.from_user))],
         [
-            types.KeyboardButton (text = await texts (lambda texts: texts['from_user']['go_home'], message.from_user.id))]
+            types.KeyboardButton (text = await texts (lambda texts: texts['from_user']['go_home'], message.from_user))]
         ],
         resize_keyboard = True
 
@@ -567,7 +567,7 @@ async def inline_keyboard_markup_about (message):
 
         inline_keyboard = [[
             types.InlineKeyboardButton (
-                text = await texts (lambda texts: texts['from_bot']['our_channel'], message.from_user.id),
+                text = await texts (lambda texts: texts['from_bot']['our_channel'], message.from_user),
                 url = 'https://t.me/li_ta_mi')]
         ]
 
@@ -579,12 +579,12 @@ async def keyboard_markup_settings_language (message):
     return types.ReplyKeyboardMarkup (
 
         keyboard = [[
-            types.KeyboardButton (text = await texts (lambda texts: texts['from_bot']['russian'], message.from_user.id)),
-            types.KeyboardButton (text = await texts (lambda texts: texts['from_bot']['english'], message.from_user.id)),
-            types.KeyboardButton (text = await texts (lambda texts: texts['from_bot']['chinese'], message.from_user.id))],
+            types.KeyboardButton (text = await texts (lambda texts: texts['from_bot']['russian'], message.from_user)),
+            types.KeyboardButton (text = await texts (lambda texts: texts['from_bot']['english'], message.from_user)),
+            types.KeyboardButton (text = await texts (lambda texts: texts['from_bot']['chinese'], message.from_user))],
         [
-            types.KeyboardButton (text = await texts (lambda texts: texts['from_user']['go_back'], message.from_user.id)),
-            types.KeyboardButton (text = await texts (lambda texts: texts['from_user']['go_home'], message.from_user.id))]
+            types.KeyboardButton (text = await texts (lambda texts: texts['from_user']['go_back'], message.from_user)),
+            types.KeyboardButton (text = await texts (lambda texts: texts['from_user']['go_home'], message.from_user))]
         ],
         resize_keyboard = True
 
@@ -607,7 +607,7 @@ async def command_start (message: Message, state: FSMContext):
 
     await message.answer (
 
-        await texts (lambda texts: texts['from_bot']['greeting_init' if message.text == '/start' else 'greeting_regular' if message.text in [texts['from_user']['go_home'], texts['from_user']['go_back']] else 'i_could_try_to_help_you_if_you_ask'], message.from_user.id),
+        await texts (lambda texts: texts['from_bot']['greeting_init' if message.text == '/start' else 'greeting_regular' if message.text in [texts['from_user']['go_home'], texts['from_user']['go_back']] else 'i_could_try_to_help_you_if_you_ask'], message.from_user),
         reply_markup = await keyboard_markup_main (message)
 
     )
@@ -618,7 +618,7 @@ async def command_about (message: Message, state: FSMContext):
 
     await message.answer (
 
-        await texts (lambda texts: texts['from_bot']['what_is_this_bot_about'], message.from_user.id),
+        await texts (lambda texts: texts['from_bot']['what_is_this_bot_about'], message.from_user),
         reply_markup = await inline_keyboard_markup_about (message)
 
     )
@@ -631,7 +631,7 @@ async def command_settings (message: Message, state: FSMContext):
 
     await message.answer (
 
-        await texts (lambda texts: texts['from_bot']['settings'], message.from_user.id),
+        await texts (lambda texts: texts['from_bot']['settings'], message.from_user),
         reply_markup = await keyboard_markup_settings (message)
 
     )
@@ -642,23 +642,23 @@ async def command_settings (message: Message, state: FSMContext):
 @dp.message (Form.page_main)
 async def got_message (message: Message, state: FSMContext):
 
-    if message.text == await texts (lambda texts: texts['from_user']['help_me_please'], message.from_user.id):
+    if message.text == await texts (lambda texts: texts['from_user']['help_me_please'], message.from_user):
 
         await state.set_state (Form.page_main)
         await message.answer (await something (message))
 
-    elif message.text == await texts (lambda texts: texts['from_user']['commands']['about_this_bot'], message.from_user.id):
+    elif message.text == await texts (lambda texts: texts['from_user']['commands']['about_this_bot'], message.from_user):
 
         await state.set_state (Form.page_main)
-        await message.answer (await texts (lambda texts: texts['from_bot']['what_is_this_bot_about'], message.from_user.id))
+        await message.answer (await texts (lambda texts: texts['from_bot']['what_is_this_bot_about'], message.from_user))
         
-    elif message.text == await texts (lambda texts: texts['from_user']['commands']['settings'], message.from_user.id):
+    elif message.text == await texts (lambda texts: texts['from_user']['commands']['settings'], message.from_user):
 
         await state.set_state (Form.page_settings)
 
         await message.answer (
 
-            await texts (lambda texts: texts['from_bot']['settings'], message.from_user.id),
+            await texts (lambda texts: texts['from_bot']['settings'], message.from_user),
             reply_markup = await keyboard_markup_settings (message)
 
         )
@@ -666,23 +666,23 @@ async def got_message (message: Message, state: FSMContext):
     elif (message.text != '/start' and message.text != '/about' and message.text != '/settings'):
 
         await state.set_state (Form.page_main)
-        await message.answer (await texts (lambda texts: texts['from_bot']['i_could_try_to_help_you_if_you_ask'], message.from_user.id))
+        await message.answer (await texts (lambda texts: texts['from_bot']['i_could_try_to_help_you_if_you_ask'], message.from_user))
 
 
 @dp.message (Form.page_settings)
 async def settings_page_handler (message: Message, state: FSMContext):
 
-    if message.text == await texts (lambda texts: texts['from_user']['choose_bot_language'], message.from_user.id):
+    if message.text == await texts (lambda texts: texts['from_user']['choose_bot_language'], message.from_user):
 
         await state.set_state (Form.page_settings_languages)
         await message.answer (
 
-            await texts (lambda texts: texts['from_bot']['choose_a_language'], message.from_user.id),
+            await texts (lambda texts: texts['from_bot']['choose_a_language'], message.from_user),
             reply_markup = await keyboard_markup_settings_language (message)
 
         )
 
-    elif message.text == await texts (lambda texts: texts['from_user']['go_home'], message.from_user.id):
+    elif message.text == await texts (lambda texts: texts['from_user']['go_home'], message.from_user):
 
         await command_start (message, state)
 
@@ -694,62 +694,62 @@ async def settings_page_handler (message: Message, state: FSMContext):
 @dp.message (Form.page_settings_languages)
 async def settings_language_page_handler (message: Message, state: FSMContext):
 
-    if message.text == await texts (lambda texts: texts['from_bot']['russian'], message.from_user.id):
+    if message.text == await texts (lambda texts: texts['from_bot']['russian'], message.from_user):
 
         await setLanguageUser (message.from_user.id, 'russian', message)
 
         await state.set_state (Form.page_settings)
 
-        await message.answer (await texts (lambda texts: texts['from_bot']['chosen_language_russian'], message.from_user.id))
+        await message.answer (await texts (lambda texts: texts['from_bot']['chosen_language_russian'], message.from_user))
 
         await message.answer (
 
-            await texts (lambda texts: texts['from_bot']['settings'], message.from_user.id),
+            await texts (lambda texts: texts['from_bot']['settings'], message.from_user),
             reply_markup = await keyboard_markup_settings (message)
 
         )
 
-    elif message.text == await texts (lambda texts: texts['from_bot']['english'], message.from_user.id):
+    elif message.text == await texts (lambda texts: texts['from_bot']['english'], message.from_user):
 
         await setLanguageUser (message.from_user.id, 'english', message)
 
         await state.set_state (Form.page_settings)
 
-        await message.answer (await texts (lambda texts: texts['from_bot']['chosen_language_english'], message.from_user.id))
+        await message.answer (await texts (lambda texts: texts['from_bot']['chosen_language_english'], message.from_user))
 
         await message.answer (
 
-            await texts (lambda texts: texts['from_bot']['settings'], message.from_user.id),
+            await texts (lambda texts: texts['from_bot']['settings'], message.from_user),
             reply_markup = await keyboard_markup_settings (message)
         
         )
 
-    elif message.text == await texts (lambda texts: texts['from_bot']['chinese'], message.from_user.id):
+    elif message.text == await texts (lambda texts: texts['from_bot']['chinese'], message.from_user):
 
         await setLanguageUser (message.from_user.id, 'chinese', message)
 
         await state.set_state (Form.page_settings)
 
-        await message.answer (await texts (lambda texts: texts['from_bot']['chosen_language_chinese'], message.from_user.id))
+        await message.answer (await texts (lambda texts: texts['from_bot']['chosen_language_chinese'], message.from_user))
 
         await message.answer (
 
-            await texts (lambda texts: texts['from_bot']['settings'], message.from_user.id),
+            await texts (lambda texts: texts['from_bot']['settings'], message.from_user),
             reply_markup = await keyboard_markup_settings (message)
 
         )
 
-    elif message.text == await texts (lambda texts: texts['from_user']['go_home'], message.from_user.id):
+    elif message.text == await texts (lambda texts: texts['from_user']['go_home'], message.from_user):
 
         await command_start (message, state)
 
-    elif message.text == await texts (lambda texts: texts['from_user']['go_back'], message.from_user.id):
+    elif message.text == await texts (lambda texts: texts['from_user']['go_back'], message.from_user):
 
         await state.set_state (Form.page_settings)
 
         await message.answer (
 
-            await texts (lambda texts: texts['from_bot']['settings'], message.from_user.id),
+            await texts (lambda texts: texts['from_bot']['settings'], message.from_user),
             reply_markup = await keyboard_markup_settings (message)
 
         )
