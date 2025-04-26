@@ -487,9 +487,16 @@ texts_chinese = {
 }
 
 
+
+
 async def texts (get_texts, user_id):
     
     return get_texts (texts_russian)
+
+
+async def setLanguageUser (user_id, language):
+
+    return None
 
 
 
@@ -705,7 +712,7 @@ async def settings_language_page_handler (message: Message, state: FSMContext):
 
     if message.text == await texts (lambda texts: texts['from_bot']['russian'], message.from_user.id):
 
-        setLanguageUser (message.from_user.id, 'russian')
+        await setLanguageUser (message.from_user.id, 'russian')
 
         await state.set_state (Form.page_settings)
 
@@ -720,7 +727,7 @@ async def settings_language_page_handler (message: Message, state: FSMContext):
 
     elif message.text == await texts (lambda texts: texts['from_bot']['english'], message.from_user.id):
 
-        setLanguageUser (message.from_user.id, 'english')
+        await setLanguageUser (message.from_user.id, 'english')
 
         await state.set_state (Form.page_settings)
 
@@ -735,7 +742,7 @@ async def settings_language_page_handler (message: Message, state: FSMContext):
 
     elif message.text == await texts (lambda texts: texts['from_bot']['chinese'], message.from_user.id):
 
-        setLanguageUser (message.from_user.id, 'chinese')
+        await setLanguageUser (message.from_user.id, 'chinese')
 
         await state.set_state (Form.page_settings)
 
