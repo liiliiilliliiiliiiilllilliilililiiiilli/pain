@@ -536,7 +536,7 @@ async def bot_menu ():
             description = 'Старт'),
         types.BotCommand (
             command = '/about',
-            description = 'bygyО боте'),
+            description = 'О боте'),
         types.BotCommand (
             command = '/settings',
             description = 'Настройки')
