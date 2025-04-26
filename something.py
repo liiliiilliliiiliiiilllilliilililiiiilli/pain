@@ -490,6 +490,8 @@ user_language = 'english'
 
 async def getLanguageUser (user_id, lang_code):
 
+    print (lang_code)
+
     return db.get (f'{user_id}') if db.exists (f'{user_id}') else 'russian' if lang_code == 'ru' else 'english' if lang_code == 'en' else 'chinese' if lang_code == 'zh' else 'russian'
 
 
