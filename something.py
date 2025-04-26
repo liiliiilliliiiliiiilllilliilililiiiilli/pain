@@ -737,7 +737,7 @@ async def settings_language_page_handler (message: Message, state: FSMContext):
 
         await state.set_state (Form.page_settings)
 
-        await message.answer (await texts (lambda texts: texts['from_bot']['chosen_language_chinese']), message.from_user.id)
+        await message.answer (await texts (lambda texts: texts['from_bot']['chosen_language_chinese'], message.from_user.id))
 
         await message.answer (
 
