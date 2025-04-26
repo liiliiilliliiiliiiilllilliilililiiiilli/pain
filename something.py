@@ -326,7 +326,7 @@ texts_english = {
 
         },
 
-        'help_me_please': 'help',
+        'help_me_please': 'Help',
         'choose_bot_language': '🌐 Bot language (English)',
         'go_back': '⬅️ Go back',
         'go_home': '🏠 Homepage'
@@ -527,13 +527,13 @@ def bot_menu ():
 
         types.BotCommand (
             command = '/start',
-            description = 'Старт'),
+            description = '🚀 Старт'),
         types.BotCommand (
             command = '/about',
-            description = 'О боте'),
+            description = ' 🔍 О боте'),
         types.BotCommand (
             command = '/settings',
-            description = 'Настройки')
+            description = '⚙️ Настройки')
 
     ]
 
@@ -766,7 +766,7 @@ async def settings_language_page_handler (message: Message, state: FSMContext):
 
 async def main ():
 
-    # await bot.set_my_commands (bot_menu ())
+    await bot.set_my_commands (bot_menu ())
 
     await dp.start_polling (bot)
 
