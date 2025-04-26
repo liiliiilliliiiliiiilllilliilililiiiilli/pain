@@ -617,7 +617,7 @@ async def command_about (message: Message, state: FSMContext):
 
     await bot.edit_message_reply_markup (
         chat_id = message.chat.id,
-        message_id = message.message_id,
+        message_id = message.message_id + 2,
         reply_markup = await inline_keyboard_markup_about (message)
     )
 
