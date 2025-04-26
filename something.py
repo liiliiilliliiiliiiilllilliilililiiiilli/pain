@@ -683,7 +683,7 @@ async def settings_language_page_handler (message: Message, state: FSMContext):
 
     if message.text == texts['from_bot']['russian']:
 
-        # texts = texts_russian
+        texts = texts_russian
 
         await state.set_state (Form.page_settings)
 
@@ -698,7 +698,7 @@ async def settings_language_page_handler (message: Message, state: FSMContext):
 
     elif message.text == texts['from_bot']['english']:
 
-        # texts = texts_english
+        texts = texts_english
 
         await state.set_state (Form.page_settings)
 
@@ -713,7 +713,7 @@ async def settings_language_page_handler (message: Message, state: FSMContext):
 
     elif message.text == texts['from_bot']['chinese']:
 
-        # texts = texts_chinese
+        texts = texts_chinese
 
         await state.set_state (Form.page_settings)
 
