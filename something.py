@@ -27,7 +27,7 @@ texts_russian = {
 
     'from_bot': {
 
-        'greeting_first': 'Привет... Если тебе очень плохо, подай сигнал, и я тебя поддержу. Я постараюсь сделать хоть что-то, чтобы помочь, но не знаю, может ли это что-либо изменить.',
+        'greeting_init': 'Привет... Если тебе очень плохо, подай сигнал, и я тебя поддержу. Я постараюсь сделать хоть что-то, чтобы помочь, но не знаю, может ли это что-либо изменить.',
         'greeting_regular': 'Если тебе очень плохо, подай сигнал, и я тебя поддержу. Я постараюсь сделать хоть что-то, чтобы помочь, но не знаю, может ли это что-либо изменить.',
         'what_is_this_bot_about': 'Я стараюсь, как могу, чтобы хоть в какой-то степени поддержать тех, кому больно. Напиши, и я отвечу.',
 
@@ -187,8 +187,8 @@ texts_english = {
 
     'from_bot': {
 
-        'greeting_first': 'Hello... If you\'re feeling really bad, you can give me a signal and I\'ll support you. I\'ll try to do at least something, but I don\'t know how much it can change anything.',
-        'i_could_try_to_help_you': 'I\'ll try to support you if you\'re in pain. Just ask.',
+        'greeting_init': 'Hello... If you\'re feeling really bad, you can give me a signal and I\'ll support you. I\'ll try to do at least something, but I don\'t know how much it can change anything.',
+        'greeting_regular': 'If you\'re feeling really bad, you can give me a signal and I\'ll support you. I\'ll try to do at least something, but I don\'t know how much it can change anything.',
         'what_is_this_bot_about': 'I try my best to at least support those who are hurting. Write and I will answer.',
 
         'choose_a_language': '🌐 Choose a language:',
@@ -346,8 +346,8 @@ texts_chinese = {
 
     'from_bot': {
 
-        'greeting': '你好。如果你感觉真的很糟糕，你可以给我一个信号，我会支持你。我会尝试做至少一些事情，但我不知道这能改变多少事情。',
-        'i_could_try_to_help_you': '如果你感到疼痛，我会尽力支持你。尽管说。',
+        'greeting_init': '你好。如果你感觉真的很糟糕，你可以给我一个信号，我会支持你。我会尝试做至少一些事情，但我不知道这能改变多少事情。',
+        'greeting_regular': '如果价感觉真的很梧糕，你可以给我一个信号，我会支特你。我会尝试做至少一些事情，但我不知道这能改变多少事情。，',
         'what_is_this_bot_about': '我尽力去支持那些正在受伤的人。写下来，我会回复。',
 
         'choose_a_language': '选择语言',
@@ -614,7 +614,7 @@ async def command_start (message: Message, state: FSMContext):
     await bot.set_my_commands (await bot_menu (message))
     await message.answer (
 
-        await texts (lambda texts: texts['from_bot']['greeting_first' if message.text == '/start' else 'greeting_regular' if message.text in [texts['from_user']['go_home'], texts['from_user']['go_back']] else 'i_could_try_to_help_you_if_you_ask'], message.from_user.id),
+        await texts (lambda texts: texts['from_bot']['greeting_init' if message.text == '/start' else 'greeting_regular' if message.text in [texts['from_user']['go_home'], texts['from_user']['go_back']] else 'i_could_try_to_help_you_if_you_ask'], message.from_user.id),
         reply_markup = await keyboard_markup_main (message)
 
     )
