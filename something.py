@@ -34,8 +34,8 @@ texts_russian = {
         'choose_a_language': '🌐 Выберите язык:',
 
         'russian': '🇷🇺 Русский',
-        'english': '🇬🇧 Английский sndkfneodkjfkledjl',
-        'chinese': '🇨🇳 Китайский',
+        'english': '🇬🇧 English',
+        'chinese': '🇨🇳 中国',
 
         'chosen_language_russian': '🇷🇺 Выбран язык: Русский.',
 
@@ -193,9 +193,9 @@ texts_english = {
 
         'choose_a_language': '🌐 Choose a language:',
 
-        'russian': 'Russian',
-        'english': 'English',
-        'chinese': 'Chinese',
+        'russian': '🇷🇺 Русский',
+        'english': '🇬🇧 English',
+        'chinese': '🇨🇳 中国',
 
         'chosen_language_english': '🇬🇧 Chosen language: English.',
 
@@ -352,9 +352,9 @@ texts_chinese = {
 
         'choose_a_language': '选择语言',
 
-        'russian': '俄语',
-        'english': '英语',
-        'chinese': '中国',
+        'russian': '🇷🇺 Русский',
+        'english': '🇬🇧 English',
+        'chinese': '🇨🇳 中国',
 
         'chosen_language_chinese': '🇨🇳 所选语言：中文',
 
