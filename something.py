@@ -458,7 +458,7 @@ texts_chinese = {
         },
 
         'help_me_please': '帮助',
-        'choose_bot_language': '🌐  机器<b>人语</b>言  (🇨🇳 中文)',
+        'choose_bot_language': '🌐  机器人语<言  (🇨🇳 中文)',
         'go_back': '⬅️  回去',
         'go_home': '🏠  前往主页'
 
