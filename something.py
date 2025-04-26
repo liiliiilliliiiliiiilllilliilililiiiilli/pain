@@ -483,7 +483,7 @@ texts_chinese = {
 
 
 
-language_q
+language_q = 'russian'
 
 
 
