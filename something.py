@@ -685,7 +685,7 @@ async def settings_language_page_handler (message: Message, state: FSMContext):
 
     if message.text == texts['from_bot']['russian']:
 
-        global texts
+        global texts_russian
 
         texts = texts_russian
 
@@ -702,7 +702,7 @@ async def settings_language_page_handler (message: Message, state: FSMContext):
 
     elif message.text == texts['from_bot']['english']:
 
-        global texts
+        global texts_english
 
         texts = texts_english
 
@@ -719,7 +719,7 @@ async def settings_language_page_handler (message: Message, state: FSMContext):
 
     elif message.text == texts['from_bot']['chinese']:
 
-        global texts
+        global texts_chinese
 
         texts = texts_chinese
 
