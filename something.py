@@ -42,7 +42,7 @@ texts_russian = {
         'english': '🇬🇧  English',
         'chinese': '🇨🇳  中国',
 
-        'chosen_language_russian': 'Выбран язык:  🇷🇺 Русский.',
+        'chosen_language_russian': 'Выбран язык:  🇷🇺 Русский',
 
         'our_channel': 'Наш канал',
 
@@ -195,7 +195,7 @@ texts_english = {
         'english': '🇬🇧  English',
         'chinese': '🇨🇳  中国',
 
-        'chosen_language_english': 'Chosen language:  🇬🇧 English.',
+        'chosen_language_english': 'Chosen language:  🇬🇧 English',
 
         'our_channel': 'Our channel',
 
@@ -348,7 +348,7 @@ texts_chinese = {
         'english': '🇬🇧  English',
         'chinese': '🇨🇳  中国',
 
-        'chosen_language_chinese': '所选语言： 🇨🇳 中文。',
+        'chosen_language_chinese': '所选语言： 🇨🇳 中文',
 
         'our_channel': '我们的频道',
 
