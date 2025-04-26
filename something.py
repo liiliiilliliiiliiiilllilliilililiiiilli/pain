@@ -527,7 +527,7 @@ class Form (StatesGroup):
     page_settings_languages = State ()
 
 
-async def bot_menu (message):
+async def bot_menu ():
     
     return [
 
