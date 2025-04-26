@@ -726,7 +726,7 @@ async def settings_language_page_handler (message: Message, state: FSMContext):
 
         await message.answer (
 
-            texts['from_bot']['settings'],
+            await texts (lambda texts: texts['from_bot']['settings'], message.from_user.id),
             reply_markup = await keyboard_markup_settings (message)
         
         )
