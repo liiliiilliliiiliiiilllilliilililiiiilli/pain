@@ -772,7 +772,7 @@ async def settings_language_page_handler (message: Message, state: FSMContext):
 
 async def main ():
 
-    await bot.set_my_commands (bot_menu ())
+    # await bot.set_my_commands (bot_menu ())
 
     await dp.start_polling (bot)
 
