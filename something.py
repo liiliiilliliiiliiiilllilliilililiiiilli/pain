@@ -34,7 +34,8 @@ texts_russian = {
 
         'greeting_init': 'Привет... Если тебе очень плохо, подай сигнал, и я тебя поддержу. Я постараюсь сделать хоть что-то, чтобы помочь, но не знаю, может ли это что-либо изменить.',
         'greeting_regular': 'Если тебе очень плохо, подай сигнал, и я тебя поддержу. Я постараюсь сделать хоть что-то, чтобы помочь, но не знаю, может ли это что-либо изменить.',
-        'what_is_this_bot_about': 'Я стараюсь, как могу, чтобы хоть в какой-то степени поддержать тех, кому больно. Напиши, и я отвечу.',
+        'what_is_this_bot_about_1': 'Автор бота и сам в трудной ситуации. Его окружает плохое - но он не сдается и старается помочь другим. Если у вас есть мечта, цель или желание - не сдавайтесь и идите собственным путем. Вы сможете получить все, чего хотите, если будете продолжать верить в добро и справедливость.',
+        'what_is_this_bot_about_2': 'Если вы не верите в свои силы - я делаю это за вас.',
 
         'choose_a_language': '🌐  Выберите язык:',
 
@@ -187,7 +188,8 @@ texts_english = {
 
         'greeting_init': 'Hello... If you\'re feeling really bad, you can give me a signal and I\'ll support you. I\'ll try to do at least something, but I don\'t know how much it can change anything.',
         'greeting_regular': 'If you\'re feeling really bad, you can give me a signal and I\'ll support you. I\'ll try to do at least something, but I don\'t know how much it can change anything.',
-        'what_is_this_bot_about': 'I try my best to at least support those who are hurting. Write and I will answer.',
+        'what_is_this_bot_about_1': 'The author of the bot is in a difficult situation himself. He is surrounded by bad things - but he does not give up and tries to help others. If you have a dream, a goal or a desire - do not give up and go your own way. You can get everything you want if you continue to believe in goodness and justice.',
+        'what_is_this_bot_about_2': 'If you do not believe in yourself - I do it for you.',
 
         'choose_a_language': '🌐  Choose a language:',
 
@@ -340,7 +342,8 @@ texts_chinese = {
 
         'greeting_init': '你好。如果你感觉真的很糟糕，你可以给我一个信号，我会支持你。我会尝试做至少一些事情，但我不知道这能改变多少事情。',
         'greeting_regular': '如果价感觉真的很梧糕，你可以给我一个信号，我会支特你。我会尝试做至少一些事情，但我不知道这能改变多少事情。，',
-        'what_is_this_bot_about': '我尽力去支持那些正在受伤的人。写下来，我会回复。',
+        'what_is_this_bot_about_1': '该机器人的作者本人也处于困境。他周围都是坏事——但他没有放弃，并试图帮助别人。如果你有梦想、目标或愿望——就不要放弃，走自己的路。只要你继续相信善良和正义，你就能得到你想要的一切。',
+        'what_is_this_bot_about_2': '如果你不相信自己，那我就替你相信。',
 
         'choose_a_language': '🌐  选择语言:',
 
@@ -602,7 +605,13 @@ async def command_about (message: Message, state: FSMContext):
 
     await message.answer (
 
-        await texts (lambda texts: texts['from_bot']['what_is_this_bot_about'], message.from_user),
+        await texts (lambda texts: texts['from_bot']['what_is_this_bot_about_1'], message.from_user)
+
+    )
+
+    await message.answer (
+
+        await texts (lambda texts: texts['from_bot']['what_is_this_bot_about_2'], message.from_user),
         reply_markup = await inline_keyboard_markup_about (message)
 
     )
