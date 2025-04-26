@@ -22,6 +22,7 @@ bot_token = '8025972966:AAHaUFQxaH-7Uu1XHQGhp5t23WpWk63Cps0'
 
 
 
+
 texts_russian = {
 
     'from_bot': {
@@ -505,8 +506,12 @@ class Form (StatesGroup):
 
 bot_menu = [
 
-    types.BotCommand (command = '/about', description = texts['menu']['about']),
-    types.BotCommand (command = '/settings', description = texts['menu']['settings'])
+    types.BotCommand (
+        command = '/about',
+        description = texts['menu']['about']),
+    types.BotCommand (
+        command = '/settings',
+        description = texts['menu']['settings'])
 
 ]
 
@@ -514,23 +519,21 @@ bot_menu = [
 keyboard_markup_main = types.ReplyKeyboardMarkup (
 
     keyboard = [[
-        types.KeyboardButton (text = texts['from_user']['help_me_please'])
-    ]],
+        types.KeyboardButton (text = texts['from_user']['help_me_please'])]
+    ],
     resize_keyboard = True
 
 )
 
 
-keyboard_markup_settings = types.InlineKeyboardMarkup (
+keyboard_markup_settings = types.ReplyKeyboardMarkup (
 
-    inline_keyboard = [[
-        types.InlineKeyboardButton (text = texts['from_user']['choose_bot_language'], callback_data = texts['from_user']['choose_bot_language'])
-    ],
+    keyboard = [[
+        types.KeyboardButton (text = texts['from_user']['choose_bot_language'])],
     [
-        types.InlineKeyboardButton (text = texts['from_user']['go_home'],callback_data = texts['from_user']['go_home'])
-    ]],
-    keyboard = []
-    # resize_keyboard = True,
+        types.KeyboardButton (text = texts['from_user']['go_home'])]
+    ],
+    resize_keyboard = True,
     # input_field_placeholder = texts['from_bot']['settings_choose_a_button']
 
 )
@@ -539,26 +542,25 @@ keyboard_markup_settings = types.InlineKeyboardMarkup (
 inline_keyboard_markup_about = types.InlineKeyboardMarkup (
 
     inline_keyboard = [[
-        types.InlineKeyboardButton (text = texts['from_bot']['our_channel'], url = 'https://t.me/li_ta_mi')
-    ]],
-    keyboard = []
+        types.InlineKeyboardButton (
+            text = texts['from_bot']['our_channel'],
+            url = 'https://t.me/li_ta_mi')]
+    ]
 
 )
 
 
-keyboard_markup_settings_language = types.InlineKeyboardMarkup (
+keyboard_markup_settings_language = types.ReplyKeyboardMarkup (
 
-    inline_keyboard = [[
-        types.InlineKeyboardButton (text = texts['from_bot']['russian'], callback_data = texts['from_bot']['russian']),
-        types.InlineKeyboardButton (text = texts['from_bot']['english'], callback_data = texts['from_bot']['english']),
-        types.InlineKeyboardButton (text = texts['from_bot']['chinese'], callback_data = texts['from_bot']['chinese'])
-    ],
+    keyboard = [[
+        types.KeyboardButton (text = texts['from_bot']['russian']),
+        types.KeyboardButton (text = texts['from_bot']['english']),
+        types.KeyboardButton (text = texts['from_bot']['chinese'])],
     [
-        types.InlineKeyboardButton (text = texts['from_user']['go_back'], callback_data = texts['from_user']['go_back']),
-        types.InlineKeyboardButton (text = texts['from_user']['go_home'], callback_data = texts['from_user']['go_home'])
-    ]],
-    keyboard = []
-    # resize_keyboard = True,
+        types.KeyboardButton (text = texts['from_user']['go_back']),
+        types.KeyboardButton (text = texts['from_user']['go_home'])]
+    ],
+    resize_keyboard = True,
     # input_field_placeholder = texts['from_bot']['settings_choose_a_button']
 
 )
@@ -615,40 +617,10 @@ async def command_settings (message: Message, state: FSMContext):
 
 
 
-@dp.callback_query ()
-async def settings_outing (call: CallbackQuery, state: FSMContext):
-
-    if call.data == texts['from_user']['choose_bot_language']:
-
-        await state.set_state (Form.page_settings_languages)
-
-        await bot.delete_message (chat_id = call.message.chat.id, message_id = call.message.message_id)
-
-        await call.message.answer (
-
-            texts['from_bot']['choose_a_language'],
-            reply_markup = keyboard_markup_settings_language
-
-        )
-
-    elif call.data == texts['from_user']['go_home']:
-
-        await bot.delete_message (chat_id = call.message.chat.id, message_id = call.message.message_id)
-
-        await command_start (call.message, state)
-
-    elif call.data == texts['from_user']['go_back']:
-
-        await state.set_state (Form.page_settings)
-
-        await bot.delete_message (chat_id = call.message.chat.id, message_id = call.message.message_id)
-
-        await call.message.answer (
-
-            texts['from_bot']['settings'],
-            reply_markup = keyboard_markup_settings
-
-        )
+# await bot.delete_messages (chat_id = call.message.chat.id, message_ids = [
+#     call.message.message_id,
+#     call.message.message_id - 1
+# ])
 
 
 
@@ -686,7 +658,21 @@ async def got_message (message: Message, state: FSMContext):
 @dp.message (Form.page_settings)
 async def settings_page_handler (message: Message, state: FSMContext):
 
-    if (message.text != '/start' and message.text != '/about' and message.text != '/settings'):
+    if message.text == texts['from_user']['choose_bot_language']:
+
+        await state.set_state (Form.page_settings_languages)
+        await message.answer (
+
+            texts['from_bot']['choose_a_language'],
+            reply_markup = keyboard_markup_settings_language
+
+        )
+
+    elif message.text == texts['from_user']['go_home']:
+
+        await command_start (message, state)
+
+    elif (message.text != '/start' and message.text != '/about' and message.text != '/settings'):
 
         await message.answer (texts['from_bot']['i_could_try_to_help_you_if_you_ask'])
 
@@ -731,6 +717,21 @@ async def settings_language_page_handler (message: Message, state: FSMContext):
         await state.set_state (Form.page_settings)
 
         await message.answer (texts['from_bot']['chosen_language_chinese'])
+
+        await message.answer (
+
+            texts['from_bot']['settings'],
+            reply_markup = keyboard_markup_settings
+
+        )
+
+    elif message.text == texts['from_user']['go_home']:
+
+        await command_start (message, state)
+
+    elif message.text == texts['from_user']['go_back']:
+
+        await state.set_state (Form.page_settings)
 
         await message.answer (
 
