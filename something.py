@@ -626,14 +626,6 @@ async def command_about (message: Message, state: FSMContext):
 @dp.message (Command ('settings'))
 async def command_settings (message: Message, state: FSMContext):
 
-    # curr_state = await state.get_state ()
-
-    # if curr_state != 'page_main':
-    #
-    #     await bot.delete_messages (chat_id = message.chat.id, message_ids = [
-    #         message.message_id - 1, message.message_id - 2
-    #     ])
-
     await state.set_state (Form.page_settings)
 
     await message.answer (
@@ -704,7 +696,6 @@ async def settings_page_handler (message: Message, state: FSMContext):
     elif (message.text != '/start' and message.text != '/about' and message.text != '/settings'):
 
         await command_start (message, state)
-        # await message.answer (texts['from_bot']['i_could_try_to_help_you_if_you_ask'])
 
 
 @dp.message (Form.page_settings_languages)
@@ -773,7 +764,6 @@ async def settings_language_page_handler (message: Message, state: FSMContext):
     elif (message.text != '/start' and message.text != '/about' and message.text != '/settings'):
 
         await command_start (message, state)
-        # await message.answer (texts['from_bot']['i_could_try_to_help_you_if_you_ask'])
 
 
 
