@@ -612,7 +612,7 @@ async def command_about (message: Message, state: FSMContext):
     await message.answer (
         
         await texts (lambda texts: texts['from_bot']['what_is_this_bot_about'], message.from_user.id),
-        reply_markup = await inline_keyboard_markup_about (message)
+        reply_markup = {remove_keyboard: true}
         
     )
 
