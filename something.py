@@ -526,11 +526,14 @@ async def bot_menu ():
     return [
 
         types.BotCommand (
+            command = '/start',
+            description = 'Старт'),
+        types.BotCommand (
             command = '/about',
-            description = texts_russian['menu']['about']),
+            description = '/О боте'),
         types.BotCommand (
             command = '/settings',
-            description = texts_russian['menu']['settings'])
+            description = 'Настройки')
 
     ]
 
@@ -763,7 +766,7 @@ async def settings_language_page_handler (message: Message, state: FSMContext):
 
 async def main ():
 
-    # await bot.set_my_commands (await bot_menu ())
+    await bot.set_my_commands (await bot_menu ())
 
     await dp.start_polling (bot)
 
