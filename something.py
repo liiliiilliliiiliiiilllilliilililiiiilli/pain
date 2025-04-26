@@ -610,10 +610,16 @@ async def command_about (message: Message, state: FSMContext):
     await state.set_state (Form.page_main)
 
     await message.answer (
-        
+
         await texts (lambda texts: texts['from_bot']['what_is_this_bot_about'], message.from_user.id),
         reply_markup = {remove_keyboard: true}
-        
+
+    )
+
+    await bot.edit_message_reply_markup (
+        chat_id = message.chat.id,
+        message_id = message.message_id + 1,
+        reply_markup = await inline_keyboard_markup_about (message)
     )
 
 
