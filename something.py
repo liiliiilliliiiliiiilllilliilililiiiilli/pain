@@ -623,8 +623,8 @@ async def command_settings (message: Message, state: FSMContext):
 
     if curr_state != 'page_main':
 
-        await bot.delete_messages (chat_id = call.message.chat.id, message_ids = [
-            call.message.message_id - 1, call.message.message.id - 2
+        await bot.delete_messages (chat_id = message.chat.id, message_ids = [
+            message.message_id - 1, message.message_id - 2
         ])
 
     await state.set_state (Form.page_settings)
