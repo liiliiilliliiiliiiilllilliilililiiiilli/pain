@@ -590,14 +590,6 @@ dp = Dispatcher ()
 
 
 
-@dp.message ()
-async def elses (message: Message, state: FSMContext):
-
-    if await state.get_state () is None:
-
-        await command_start (message, state)
-
-
 @dp.message (Command ('start'))
 async def command_start (message: Message, state: FSMContext):
 
@@ -759,6 +751,16 @@ async def settings_language_page_handler (message: Message, state: FSMContext):
         )
 
     elif (message.text != '/start' and message.text != '/about' and message.text != '/settings'):
+
+        await command_start (message, state)
+
+
+
+
+@dp.message ()
+async def elses (message: Message, state: FSMContext):
+
+    if await state.get_state () is None:
 
         await command_start (message, state)
 
