@@ -591,13 +591,13 @@ dp = Dispatcher ()
 
 
 @dp.message (Command ('start'))
-async def command_start (message: Message, state: FSMContext):
+async def command_start (message: Message, state: FSMContext, is_init = False):
 
     await state.set_state (Form.page_main)
 
     await message.answer (
 
-        await texts (lambda texts: texts['from_bot']['greeting_init' if message.text == '/start' else 'greeting_regular' if message.text in [texts['from_user']['go_home'], texts['from_user']['go_back']] else 'i_could_try_to_help_you_if_you_ask'], message.from_user),
+        await texts (lambda texts: texts['from_bot']['greeting_init' if ((message.text == '/start') or (is_init == True)) else 'greeting_regular' if message.text in [texts['from_user']['go_home'], texts['from_user']['go_back']] else 'i_could_try_to_help_you_if_you_ask'], message.from_user),
         reply_markup = await keyboard_markup_main (message)
 
     )
@@ -762,7 +762,7 @@ async def elses (message: Message, state: FSMContext):
 
     if await state.get_state () is None:
 
-        await command_start (message, state)
+        await command_start (message, state, is_init = True)
 
 
 
