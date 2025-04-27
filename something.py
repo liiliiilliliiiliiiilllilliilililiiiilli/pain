@@ -529,7 +529,8 @@ async def keyboard_markup_main (message):
         keyboard = [[
             types.KeyboardButton (text = await texts (lambda texts: texts['from_user']['help_me_please'], message.from_user))]
         ],
-        resize_keyboard = True
+        resize_keyboard = True,
+        one_time_keyboard = False
 
 )
 
@@ -543,7 +544,8 @@ async def keyboard_markup_settings (message):
         [
             types.KeyboardButton (text = await texts (lambda texts: texts['from_user']['go_home'], message.from_user))]
         ],
-        resize_keyboard = True
+        resize_keyboard = True,
+        one_time_keyboard = False
 
 )
 
@@ -573,7 +575,8 @@ async def keyboard_markup_settings_language (message):
             types.KeyboardButton (text = await texts (lambda texts: texts['from_user']['go_back'], message.from_user)),
             types.KeyboardButton (text = await texts (lambda texts: texts['from_user']['go_home'], message.from_user))]
         ],
-        resize_keyboard = True
+        resize_keyboard = True,
+        one_time_keyboard = False
 
 )
 
@@ -585,6 +588,14 @@ bot = Bot (token = bot_token, default = DefaultBotProperties (parse_mode = Parse
 dp = Dispatcher ()
 
 
+
+
+@dp.message ()
+async def elses (message: Message, state: FSMContext):
+
+    if await state.get_state () is None:
+
+        await command_start (message, state)
 
 
 @dp.message (Command ('start'))
